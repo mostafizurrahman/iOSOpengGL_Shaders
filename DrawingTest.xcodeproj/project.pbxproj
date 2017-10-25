@@ -17,6 +17,13 @@
 		BE12AFB41F9EF52000FB2186 /* DrawingTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AFB31F9EF52000FB2186 /* DrawingTestUITests.m */; };
 		BE12AFC31F9EF54F00FB2186 /* DrawingView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */; };
 		BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE12AFC41F9EFB1400FB2186 /* image.jpg */; };
+		BE1C3C2D1FA0571C00D45815 /* OpenGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1C3C2C1FA0571C00D45815 /* OpenGLView.m */; };
+		BE1C3C301FA0573A00D45815 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1C3C2F1FA0573A00D45815 /* OpenGLES.framework */; };
+		BE1C3C321FA0574200D45815 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1C3C311FA0574200D45815 /* QuartzCore.framework */; };
+		BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1C3C341FA057C400D45815 /* GLViewController.m */; };
+		BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */; };
+		BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */; };
+		BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3BB9601FA09E87003E63C7 /* Particle.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +63,15 @@
 		BE12AFC11F9EF54F00FB2186 /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
 		BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawingView.mm; sourceTree = "<group>"; };
 		BE12AFC41F9EFB1400FB2186 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLView.h; path = OpengGL/OpenGLView.h; sourceTree = "<group>"; };
+		BE1C3C2C1FA0571C00D45815 /* OpenGLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenGLView.m; path = OpengGL/OpenGLView.m; sourceTree = "<group>"; };
+		BE1C3C2F1FA0573A00D45815 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		BE1C3C311FA0574200D45815 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BE1C3C331FA057C400D45815 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLViewController.h; path = OpengGL/GLViewController.h; sourceTree = "<group>"; };
+		BE1C3C341FA057C400D45815 /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLViewController.m; path = OpengGL/GLViewController.m; sourceTree = "<group>"; };
+		BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVertex.glsl; path = OpengGL/SimpleVertex.glsl; sourceTree = "<group>"; };
+		BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFragment.glsl; path = OpengGL/SimpleFragment.glsl; sourceTree = "<group>"; };
+		BE3BB9601FA09E87003E63C7 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE1C3C321FA0574200D45815 /* QuartzCore.framework in Frameworks */,
+				BE1C3C301FA0573A00D45815 /* OpenGLES.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +108,7 @@
 				BE12AFA71F9EF52000FB2186 /* DrawingTestTests */,
 				BE12AFB21F9EF52000FB2186 /* DrawingTestUITests */,
 				BE12AF8C1F9EF52000FB2186 /* Products */,
+				BE1C3C2E1FA0573A00D45815 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +125,7 @@
 		BE12AF8D1F9EF52000FB2186 /* DrawingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BE3BB9601FA09E87003E63C7 /* Particle.png */,
 				BE12AF911F9EF52000FB2186 /* AppDelegate.h */,
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
 				BE12AF941F9EF52000FB2186 /* ViewController.h */,
@@ -118,6 +138,12 @@
 				BE12AF8E1F9EF52000FB2186 /* Supporting Files */,
 				BE12AFC11F9EF54F00FB2186 /* DrawingView.h */,
 				BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */,
+				BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */,
+				BE1C3C2C1FA0571C00D45815 /* OpenGLView.m */,
+				BE1C3C331FA057C400D45815 /* GLViewController.h */,
+				BE1C3C341FA057C400D45815 /* GLViewController.m */,
+				BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */,
+				BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */,
 			);
 			path = DrawingTest;
 			sourceTree = "<group>";
@@ -146,6 +172,15 @@
 				BE12AFB51F9EF52000FB2186 /* Info.plist */,
 			);
 			path = DrawingTestUITests;
+			sourceTree = "<group>";
+		};
+		BE1C3C2E1FA0573A00D45815 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE1C3C311FA0574200D45815 /* QuartzCore.framework */,
+				BE1C3C2F1FA0573A00D45815 /* OpenGLES.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +292,11 @@
 			files = (
 				BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */,
 				BE12AF9B1F9EF52000FB2186 /* Assets.xcassets in Resources */,
+				BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */,
+				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
+				BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,9 +322,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE12AF961F9EF52000FB2186 /* ViewController.m in Sources */,
+				BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */,
 				BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */,
 				BE12AF901F9EF52000FB2186 /* main.m in Sources */,
 				BE12AFC31F9EF54F00FB2186 /* DrawingView.mm in Sources */,
+				BE1C3C2D1FA0571C00D45815 /* OpenGLView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,11 +475,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W7CT22M8UH;
 				INFOPLIST_FILE = DrawingTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision.DrawingTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -448,11 +489,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = W7CT22M8UH;
 				INFOPLIST_FILE = DrawingTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision.DrawingTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

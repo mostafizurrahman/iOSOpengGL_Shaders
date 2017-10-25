@@ -41,6 +41,7 @@ inline CGPoint fromUItoQuartz(CGPoint point, CGSize frameSize){
     tap.numberOfTapsRequired = 2;
     tap.delegate = self;
     [self addGestureRecognizer:tap];
+    self.layer.contentsScale = [UIScreen mainScreen].scale;
     return self;
 }
 
@@ -98,6 +99,7 @@ inline CGPoint fromUItoQuartz(CGPoint point, CGSize frameSize){
     const CGPoint c_point = [self getConvertedPoint:[[touches allObjects] firstObject]];
     [drawingPath addLineToPoint:c_point];
     
+    
     [self performDrawing];
     
     CGImageRef cgImage = CGBitmapContextCreateImage(_imageContext);
@@ -114,8 +116,32 @@ inline CGPoint fromUItoQuartz(CGPoint point, CGSize frameSize){
 
 -(void)performDrawing{
     
+//    CGContextRef context = _imageContext;
+//    CGContextSaveGState(context);
+//    CGRect boundingRect = CGContextGetClipBoundingBox(context);
+//    CGContextAddRect(context, boundingRect);
+//    CGContextAddPath(context, [drawingPath CGPath]);
+//    CGContextEOClip(context);
+//    
+//    [[UIColor blackColor] setFill];
+//    CGContextAddPath(context, [drawingPath CGPath]);
+//    CGContextSetShadowWithColor(context, CGSizeMake(1, 1), 1.0, [UIColor blueColor].CGColor);
+//    CGContextSetBlendMode (context, kCGBlendModeNormal);
+//    CGContextFillPath(context);
+//    
+//    CGContextAddPath(context, [drawingPath CGPath]);
+//    CGContextSetShadowWithColor(context, CGSizeMake(-1, -1), 1.0, [UIColor clearColor].CGColor);
+//    CGContextSetBlendMode (context, kCGBlendModeNormal);
+//    CGContextFillPath(context);
+    
+//    CGContextRestoreGState(context);
+    
     CGContextAddPath(_imageContext, [drawingPath CGPath]);
     CGContextStrokePath(_imageContext);
+}
+
+-(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx{
+    
 }
 
 @end
