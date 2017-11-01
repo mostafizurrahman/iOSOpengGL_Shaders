@@ -16,6 +16,7 @@
     
     GLuint _texCoordSlot;
     GLuint _textureUniform;
+    GLuint _textureFloorUniform;
     GLuint _positionSlot;
     GLuint _colorSlot;
     

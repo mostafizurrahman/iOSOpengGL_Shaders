@@ -85,7 +85,8 @@ const GLubyte Indices2[] = {
         [self setupFrameBuffer];
         [self compileShaders];
         [self setupVBOs];
-        _brushTexture = [self setupTexture:@"mk.png"];
+        _brushTexture = [self setupTexture:@"Particle.png"];
+        _floorTexture = [self setupTexture:@"image.jpg"];
         [self render];
         
     }
@@ -237,6 +238,11 @@ const GLubyte Indices2[] = {
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, _brushTexture);
     glUniform1i(_textureUniform, 0);
+    
+    _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
+    glActiveTexture(GL_TEXTURE0 + 1);
+    glBindTexture(GL_TEXTURE_2D, _floorTexture);
+    glUniform1i(_textureFloorUniform, 1);
     
     _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
     _positionSlot = glGetAttribLocation(programHandle, "Position");
