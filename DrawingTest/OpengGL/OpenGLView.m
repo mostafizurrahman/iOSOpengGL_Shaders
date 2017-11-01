@@ -10,10 +10,14 @@
 #import <QuartzCore/QuartzCore.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+
+#define TEX_COORD_MAX   4
+
+
 typedef struct {
     float Position[3];
     float Color[4];
-    
+    float TexCoord[2];
 } Vertex;
 @implementation OpenGLView
 
@@ -26,30 +30,48 @@ typedef struct {
 */
 
 const Vertex Vertices[] = {
-    {{1, -1, 0}, {1, 0, 0, 1}},
-    {{1, 1, 0}, {0, 1, 0, 1}},
-    {{-1, 1, 0}, {0, 0, 1, 1}},
-    {{-1, -1, 0}, {0, 0, 0, 1}}
+    {{1, -1, 0}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
+    {{1, 1, 0}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
+    {{-1, 1, 0}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
+    {{-1, -1, 0}, {0, 0, 0, 1}, {0, 0}},
 };
 
 const GLubyte Indices[] = {
-    2, 1, 0,
+    0, 1, 2,
     2, 3, 0
 };
 
 
+const Vertex Vertices2[] = {
+    {{0.5, -0.5, 0.01}, {1, 1, 1, 1}, {1, 1}},
+    {{0.5, 0.5, 0.01}, {1, 1, 1, 1}, {1, 0}},
+    {{-0.5, 0.5, 0.01}, {1, 1, 1, 1}, {0, 0}},
+    {{-0.5, -0.5, 0.01}, {1, 1, 1, 1}, {0, 1}},
+};
+
+const GLubyte Indices2[] = {
+    0, 1, 2,
+    2, 3, 0
+};
+
 - (void)setupVBOs {
     
-    GLuint vertexBuffer;
+    
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
     
-    GLuint indexBuffer;
     glGenBuffers(1, &indexBuffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices), Indices, GL_STATIC_DRAW);
     
+    glGenBuffers(1, &_vertexBuffer2);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices2), Vertices2, GL_STATIC_DRAW);
+    
+    glGenBuffers(1, &_indexBuffer2);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(Indices2), Indices2, GL_STATIC_DRAW);
 }
 
 
@@ -124,12 +146,12 @@ const GLubyte Indices[] = {
                           sizeof(Vertex), 0);
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE,
                           sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
-//    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE,
-//                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 7));
+    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE,
+                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 7));
     
-    GLsizei count = sizeof(Indices)/sizeof(Indices[0]);
+    
     // 3
-    glDrawElements(GL_TRIANGLES, count,
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
                    GL_UNSIGNED_BYTE, 0);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }

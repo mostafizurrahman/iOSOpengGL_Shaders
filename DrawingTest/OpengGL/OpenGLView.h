@@ -21,6 +21,13 @@
     
     GLuint _floorTexture;
     GLuint _brushTexture;
+    
+    
+    GLuint vertexBuffer;
+    GLuint indexBuffer;
+    GLuint _vertexBuffer2;
+    GLuint _indexBuffer2;
+
 }
 
 @end
