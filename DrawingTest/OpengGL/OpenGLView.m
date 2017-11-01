@@ -157,6 +157,13 @@ const GLubyte Indices2[] = {
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
     
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, _brushTexture);
+    glUniform1i(_textureUniform, 0);
+    
+    glActiveTexture(GL_TEXTURE0 + 1);
+    glBindTexture(GL_TEXTURE_2D, _floorTexture);
+    glUniform1i(_textureFloorUniform, 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     // 3
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
@@ -233,6 +240,9 @@ const GLubyte Indices2[] = {
     // 4
     glUseProgram(programHandle);
     
+    _textureUniform = glGetUniformLocation(programHandle, "Texture");
+    
+    _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
     // 5
     _textureUniform = glGetUniformLocation(programHandle, "Texture");
     glActiveTexture(GL_TEXTURE0);
