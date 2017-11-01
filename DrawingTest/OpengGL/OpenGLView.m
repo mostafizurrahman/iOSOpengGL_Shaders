@@ -122,7 +122,7 @@ const GLubyte Indices2[] = {
         NSLog(@"Failed to set current OpenGL context");
         exit(1);
     }
-    
+    self.opaque = NO;
     
 }
 
@@ -141,7 +141,6 @@ const GLubyte Indices2[] = {
 }
 
 - (void)render {
-    glClear(GL_COLOR_BUFFER_BIT);
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
     glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
