@@ -24,6 +24,7 @@
 		BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */; };
 		BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */; };
 		BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3BB9601FA09E87003E63C7 /* Particle.png */; };
+		BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CAE1FAA0D48001E1A7E /* mk.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVertex.glsl; path = OpengGL/SimpleVertex.glsl; sourceTree = "<group>"; };
 		BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFragment.glsl; path = OpengGL/SimpleFragment.glsl; sourceTree = "<group>"; };
 		BE3BB9601FA09E87003E63C7 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
+		BEE52CAE1FAA0D48001E1A7E /* mk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mk.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 		BE12AF8D1F9EF52000FB2186 /* DrawingTest */ = {
 			isa = PBXGroup;
 			children = (
+				BEE52CAE1FAA0D48001E1A7E /* mk.png */,
 				BE3BB9601FA09E87003E63C7 /* Particle.png */,
 				BE12AF911F9EF52000FB2186 /* AppDelegate.h */,
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */,
+				BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */,
 				BE12AF9B1F9EF52000FB2186 /* Assets.xcassets in Resources */,
 				BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
