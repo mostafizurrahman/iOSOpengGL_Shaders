@@ -75,9 +75,9 @@ const GLubyte Indices2[] = {
 }
 
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         [self setupLayer];
         [self setupContext];
@@ -87,7 +87,7 @@ const GLubyte Indices2[] = {
         [self setupVBOs];
         _brushTexture = [self setupTexture:@"mk.png"];
         [self render];
-        self.backgroundColor = [UIColor redColor];
+        
     }
     return self;
 }
@@ -106,7 +106,7 @@ const GLubyte Indices2[] = {
 
 - (void)setupLayer {
     _eaglLayer = (CAEAGLLayer*) self.layer;
-    _eaglLayer.opaque = YES;
+    _eaglLayer.opaque = NO;
 }
 
 
@@ -123,7 +123,8 @@ const GLubyte Indices2[] = {
         exit(1);
     }
     self.opaque = NO;
-    
+    self.backgroundColor = [UIColor clearColor];
+//    _eaglLayer.backgroundColor = [[UIColor clearColor] CGColor];
 }
 
 - (void)setupRenderBuffer {
@@ -143,7 +144,7 @@ const GLubyte Indices2[] = {
 - (void)render {
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
-    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
+    glClearColor(0, 0.0, 0.0, 0.0);
     
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
