@@ -30,10 +30,10 @@ typedef struct {
 */
 
 const Vertex Vertices[] = {
-    {{1, -1, 0}, {1, 0, 0, 1}, {TEX_COORD_MAX, 0}},
-    {{1, 1, 0}, {0, 1, 0, 1}, {TEX_COORD_MAX, TEX_COORD_MAX}},
-    {{-1, 1, 0}, {0, 0, 1, 1}, {0, TEX_COORD_MAX}},
-    {{-1, -1, 0}, {0, 0, 0, 1}, {0, 0}},
+    {{1, -1, 0}, {1, 0, 0, 1}, {1, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1}, {1, 0}},
+    {{-1, 1, 0}, {0, 0, 1, 1}, {0, 0}},
+    {{-1, -1, 0}, {0, 0, 0, 1}, {0, 1}},
 };
 
 const GLubyte Indices[] = {
@@ -87,7 +87,7 @@ const GLubyte Indices2[] = {
         [self setupVBOs];
         _brushTexture = [self setupTexture:@"Particle.png"];
         [self render];
-        
+        self.backgroundColor = [UIColor redColor];
     }
     return self;
 }
@@ -122,6 +122,8 @@ const GLubyte Indices2[] = {
         NSLog(@"Failed to set current OpenGL context");
         exit(1);
     }
+    
+    
 }
 
 - (void)setupRenderBuffer {
@@ -129,7 +131,7 @@ const GLubyte Indices2[] = {
     glBindRenderbuffer(GL_RENDERBUFFER, _colorRenderBuffer);
     [_context renderbufferStorage:GL_RENDERBUFFER fromDrawable:_eaglLayer];
 }
-
+//
 - (void)setupFrameBuffer {
     GLuint framebuffer;
     glGenFramebuffers(1, &framebuffer);
@@ -139,20 +141,24 @@ const GLubyte Indices2[] = {
 }
 
 - (void)render {
-    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
+    glClearColor(0, 104.0/255.0, 55.0/255.0, 1.0);
+    
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
-    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex), 0);
-    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 3));
-    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE,
-                          sizeof(Vertex), (GLvoid*) (sizeof(float) * 7));
+    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+    glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Position));
+    glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Color));
+    glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
     
     
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     // 3
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
                    GL_UNSIGNED_BYTE, 0);
+//    glDrawElements(GL_TRIANGLES, sizeof(Indices2)/sizeof(Indices2[0]),
+//                   GL_UNSIGNED_BYTE, 0);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
 }
 
@@ -270,6 +276,10 @@ const GLubyte Indices2[] = {
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)width, (int)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, spriteData);
     
     free(spriteData);
+//    CGSize size_ = 
+//    const CGFloat glwidth = wi
+    
+    
     return texName;    
 }
 
