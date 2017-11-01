@@ -17,10 +17,12 @@
     GLuint _texCoordSlot;
     GLuint _textureUniform;
     GLuint _textureFloorUniform;
+    GLuint _textureTopUniform;
     GLuint _positionSlot;
     GLuint _colorSlot;
     
     GLuint _floorTexture;
+    GLuint _bwTexture;
     GLuint _brushTexture;
     
     
