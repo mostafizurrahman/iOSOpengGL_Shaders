@@ -42,12 +42,12 @@ float normpdf3(in vec3 v, in float sigma)
 void main(void)
 {
     float sigma = SIGMA;
-    vec2 resolution = vec2(400, 650);
+    vec2 resolution = vec2(400, 400);
     //vec3 c = texture2D(texture, vec2(0.0, 1.0)-(gl_FragCoord.xy / resolution.xy)).rgb;
     vec2 t = gl_FragCoord.xy / resolution.xy;
     t.y = 1.0-t.y;
-    vec3 c = texture2D(Texture, t).rgb;
     
+    vec3 c = texture2D(Texture, t).rgb;
     
     //declare stuff
     const int kSize = (MSIZE-1)/2;
