@@ -16,7 +16,24 @@ uniform sampler2D TextureTop;
 
 
 
+const float modr = 0.3;
+const float modg = 0.55;
+const float modb = 0.25;
 
+void main(void)
+{
+    vec3 col = texture2D(Texture, TexCoordOut.st).rgb;
+    
+    col.r -= mod(col.r, modr);
+    col.g -= mod(col.g, modg);
+    col.b -= mod(col.b, modb);
+    
+    gl_FragColor = vec4(col, 1.0);
+}
+
+
+
+/*
 const vec4  kRGBToYPrime = vec4 (0.299, 0.587, 0.114, 0.0);
 const vec4  kRGBToI     = vec4 (0.596, -0.275, -0.321, 0.0);
 const vec4  kRGBToQ     = vec4 (0.212, -0.523, 0.311, 0.0);
@@ -55,6 +72,8 @@ void main ()
     // Save the result
     gl_FragColor    = color;
 }
+
+*/
 /*
  const int pixelsPerRow = 100;
  
