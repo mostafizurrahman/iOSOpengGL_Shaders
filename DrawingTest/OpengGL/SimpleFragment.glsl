@@ -13,9 +13,27 @@ uniform sampler2D TextureFloor;
 uniform sampler2D TextureTop;
 
 
+varying vec4 vertTexCoord;
 
+ float brightness = 1.2;
+ float contrast = 0.39;
+ float saturation = 0.7;
 
+void main(void) {
+    vec3 texColor = texture2D(Texture, TexCoordOut.st).rgb;
+    
+    const vec3 LumCoeff = vec3(0.2125, 0.7154, 0.0721);
+    vec3 AvgLumin = vec3(0.5, 0.5, 0.5);
+    vec3 intensity = vec3(dot(texColor, LumCoeff));
+    
+    vec3 satColor = mix(intensity, texColor, saturation);
+    vec3 conColor = mix(AvgLumin, satColor, contrast);
+    
+    gl_FragColor = vec4(brightness * conColor, 1.0);
+}
 
+/*
+//consider this as uniforms
 const float modr = 0.3;
 const float modg = 0.55;
 const float modb = 0.25;
@@ -31,7 +49,7 @@ void main(void)
     gl_FragColor = vec4(col, 1.0);
 }
 
-
+*/
 
 /*
 const vec4  kRGBToYPrime = vec4 (0.299, 0.587, 0.114, 0.0);
