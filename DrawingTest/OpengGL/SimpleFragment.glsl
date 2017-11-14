@@ -13,75 +13,29 @@ uniform sampler2D TextureFloor;
 uniform sampler2D TextureTop;
 
 
-#define SIGMA 5.0
-#define BSIGMA 0.1
-#define MSIZE 10
 
 
-
-
-
-
-// viewport resolution (in pixels)
-//uniform sampler2D texture;          // input channel. XX = 2D/Cube
-
-//uniform float sigma;
-
-
-float normpdf(in float x, in float sigma)
-{
-    return 0.39894*exp(-0.5*x*x/(sigma*sigma))/sigma;
-}
-
-float normpdf3(in vec3 v, in float sigma)
-{
-    return 0.39894*exp(-0.5*dot(v,v)/(sigma*sigma))/sigma;
-}
-
+const int pixelsPerRow = 100;
 
 void main(void)
 {
-    float sigma = SIGMA;
-    vec2 resolution = vec2(400, 400);
-    //vec3 c = texture2D(texture, vec2(0.0, 1.0)-(gl_FragCoord.xy / resolution.xy)).rgb;
-    vec2 t = gl_FragCoord.xy / resolution.xy;
-    t.y = 1.0-t.y;
+    vec2 p = TexCoordOut.st;
+    float pixelSize = 1.0 / float(pixelsPerRow);
     
-    vec3 c = texture2D(Texture, t).rgb;
+    float dx = mod(p.x, pixelSize) - pixelSize*0.5;
+    float dy = mod(p.y, pixelSize) - pixelSize*0.5;
     
-    //declare stuff
-    const int kSize = (MSIZE-1)/2;
-    float kernel[MSIZE];
-    vec3 final_colour = vec3(0.0);
+    p.x -= dx;
+    p.y -= dy;
+    vec3 col = texture2D(Texture, p).rgb;
+    float bright = 0.3333*(col.r+col.g+col.b);
     
-    //create the 1-D kernel
-    float Z = 0.0;
-    for (int j = 0; j <= kSize; ++j)
-    {
-        kernel[kSize+j] = kernel[kSize-j] = normpdf(float(j), sigma);
-    }
+    float dist = sqrt(dx*dx + dy*dy);
+    float rad = bright * pixelSize * 0.8;
+    float m = step(dist, rad);
     
-    
-    vec3 cc;
-    float factor;
-    float bZ = 1.0/normpdf(0.0, BSIGMA);
-    //read out the texels
-    for (int i=-kSize; i <= kSize; ++i)
-    {
-        for (int j=-kSize; j <= kSize; ++j)
-        {
-            vec2 tt = (gl_FragCoord.xy+vec2(float(i),float(j))) / resolution.xy;
-            tt.y = 1.0-tt.y;
-            cc = texture2D(Texture, tt).rgb;
-            factor = normpdf3(cc-c, BSIGMA)*bZ*kernel[kSize+j]*kernel[kSize+i];
-            Z += factor;
-            final_colour += factor*cc;
-            
-        }
-    }		
-    
-    gl_FragColor = vec4(final_colour/Z, 1.0);
-    
+    vec3 col2 = mix(col,col, m);
+    gl_FragColor = vec4(col2, 1.0);
 }
 
 
