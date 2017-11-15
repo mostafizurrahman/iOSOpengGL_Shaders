@@ -29,16 +29,20 @@ void main() {
     vec4 LU = texture2D(Texture, uv - vec2( n.x, -n.y));
     vec4 CD = texture2D(Texture, uv - vec2( 0.0,  n.y));
     vec4 CU = texture2D(Texture, uv + vec2( 0.0,  n.y));
-    gl_FragColor = vec4(2.0*abs(length(
+    vec4 color = vec4(2.0 * abs(length(
                                        vec2(
-                                            -abs(dot(luminance_vector, RD - LD))
-                                            +4.0*abs(dot(luminance_vector, RC - LC))
-                                            -abs(dot(luminance_vector, RU - LU)),
-                                            -abs(dot(luminance_vector, LD - LU))
-                                            +4.0*abs(dot(luminance_vector, CD - CU))
-                                            -abs(dot(luminance_vector, RD - RU))
+                                            -abs(dot(luminance_vector, LD - RD))
+                                            +4.0*abs(dot(luminance_vector, LC - RC))
+                                            -abs(dot(luminance_vector, LU - RU)),
+                                            
+                                            -abs(dot(luminance_vector, LU - LD))
+                                            +4.0*abs(dot(luminance_vector, CU - CD))
+                                            -abs(dot(luminance_vector, RU - RD))
                                             )
                                        )-0.5));//.5 is pixel area
+    float gray = dot(color.rgb, vec3(0.299, 0.587, 0.114));
+    
+    gl_FragColor = vec4(gray, gray, gray, 1.0);
 }
 
 
