@@ -30,7 +30,6 @@
 		EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */; };
 		EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F81FBBA10800B8DCC7 /* spot.jpg */; };
 		EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */; };
-		EB6CD7751FBCBEF700CDF7CE /* IMG_2098.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB6CD7741FBCBEF700CDF7CE /* IMG_2098.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,7 +84,6 @@
 		EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpeg; sourceTree = "<group>"; };
 		EB0F84F81FBBA10800B8DCC7 /* spot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot.jpg; sourceTree = "<group>"; };
 		EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot2.jpg; sourceTree = "<group>"; };
-		EB6CD7741FBCBEF700CDF7CE /* IMG_2098.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_2098.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,7 +142,6 @@
 				BEE52CB01FAA1AF3001E1A7E /* cat.png */,
 				EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */,
 				BE3BB9601FA09E87003E63C7 /* Particle.png */,
-				EB6CD7741FBCBEF700CDF7CE /* IMG_2098.jpg */,
 				BE12AF911F9EF52000FB2186 /* AppDelegate.h */,
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
 				BE12AF941F9EF52000FB2186 /* ViewController.h */,
@@ -315,7 +312,6 @@
 				EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */,
 				BEE52CB11FAA1AF3001E1A7E /* cat.png in Resources */,
 				BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */,
-				EB6CD7751FBCBEF700CDF7CE /* IMG_2098.jpg in Resources */,
 				BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */,
 				BE12AF9B1F9EF52000FB2186 /* Assets.xcassets in Resources */,
 				EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */,
