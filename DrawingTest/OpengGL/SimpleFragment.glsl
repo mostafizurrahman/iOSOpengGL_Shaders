@@ -14,6 +14,27 @@ uniform sampler2D TextureTop;
 
 
 varying vec4 vertTexCoord;
+
+void main(void) { // 2
+    
+    lowp vec4 maskTexture = texture2D(Texture, TexCoordOut);
+    lowp vec4 coloredTexture = texture2D(TextureFloor, TexCoordOut);
+    lowp vec4 b_wTexture =  texture2D(TextureTop, TexCoordOut);
+    lowp float Da = DestinationColor.a;
+    lowp float maskAlpha = maskTexture.a;
+//    gl_FragColor = background;
+    gl_FragColor = coloredTexture * maskAlpha + (1.0 - maskAlpha) * b_wTexture;
+//    lowp float Sa = S.a;
+//    lowp vec4 R = D*(1.0 - Sa);
+    
+//    if(R.a < 1.0){
+//        gl_FragColor = B;
+//    } else {
+//        gl_FragColor = R;
+//    }
+    
+    
+}
 /*
 float 		width = 400.0;
 float 		height = 400.0 ;
@@ -48,6 +69,8 @@ void main(void)
 
 
 */
+
+/*
 vec2 resolution = vec2(400, 400);
 const vec4 luminance_vector = vec4(0.3, 0.6, 0.7, 0.0);
 void main() {
@@ -77,7 +100,7 @@ void main() {
     
     gl_FragColor = vec4(gray, gray, gray, 1.0);
 }
-
+*/
 
  
  

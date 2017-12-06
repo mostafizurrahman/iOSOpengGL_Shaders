@@ -85,9 +85,9 @@ const GLubyte Indices2[] = {
         [self setupFrameBuffer];
         [self compileShaders];
         [self setupVBOs];
-        _brushTexture = [self setupTexture:@"spot2.jpg"];
-//        _floorTexture = [self setupTexture:@"cat.png"];
-//        _bwTexture = [self setupTexture:@"bw.jpg"];
+        _brushTexture = [self setupTexture:@"cat.png"];
+        _floorTexture = [self setupTexture:@"image.jpg"];
+        _bwTexture = [self setupTexture:@"bw.jpg"];
         [self render];
         
     }
@@ -162,15 +162,15 @@ const GLubyte Indices2[] = {
     glBindTexture(GL_TEXTURE_2D, _brushTexture);
     glUniform1i(_textureUniform, 0);
     
-//    glActiveTexture(GL_TEXTURE0 + 1);
-//    glBindTexture(GL_TEXTURE_2D, _floorTexture);
-//    glUniform1i(_textureFloorUniform, 1);
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
-//
-//    glActiveTexture(GL_TEXTURE0 + 2);
-//    glBindTexture(GL_TEXTURE_2D, _bwTexture);
-//    glUniform1i(_textureTopUniform, 2);
-//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glActiveTexture(GL_TEXTURE0 + 1);
+    glBindTexture(GL_TEXTURE_2D, _floorTexture);
+    glUniform1i(_textureFloorUniform, 1);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+
+    glActiveTexture(GL_TEXTURE0 + 2);
+    glBindTexture(GL_TEXTURE_2D, _bwTexture);
+    glUniform1i(_textureTopUniform, 2);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     // 3
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
                    GL_UNSIGNED_BYTE, 0);
