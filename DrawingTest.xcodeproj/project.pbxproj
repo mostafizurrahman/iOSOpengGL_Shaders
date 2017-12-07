@@ -31,6 +31,7 @@
 		EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F81FBBA10800B8DCC7 /* spot.jpg */; };
 		EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */; };
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
+		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		EB0F84F81FBBA10800B8DCC7 /* spot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot.jpg; sourceTree = "<group>"; };
 		EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot2.jpg; sourceTree = "<group>"; };
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
+		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
 				BE12AF941F9EF52000FB2186 /* ViewController.h */,
 				BE12AF951F9EF52000FB2186 /* ViewController.m */,
+				EB5ED4E41FD9C9220044CC42 /* img.png */,
 				BE12AFC41F9EFB1400FB2186 /* image.jpg */,
 				EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */,
 				EB0F84F81FBBA10800B8DCC7 /* spot.jpg */,
@@ -322,6 +325,7 @@
 				EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */,
 				BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
+				EB5ED4E51FD9C9220044CC42 /* img.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
 				BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */,

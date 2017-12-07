@@ -14,6 +14,18 @@ uniform sampler2D TextureTop;
 
 varying vec4 vertTexCoord;
 
+float blendOverlay(float base, float blend) {
+    return base<0.5?(2.0*base*blend):(1.0-2.0*(1.0-base)*(1.0-blend));
+}
+
+vec3 blendOverlay(vec3 base, vec3 blend) {
+    return vec3(blendOverlay(base.r,blend.r),blendOverlay(base.g,blend.g),blendOverlay(base.b,blend.b));
+}
+
+vec3 blendOverlay(vec3 base, vec3 blend, float opacity) {
+    return (blendOverlay(base, blend) * opacity + base * (1.0 - opacity));
+}
+
 void main(void) { // 2
     
     lowp vec4 maskTexture = texture2D(Texture, TexCoordOut);
@@ -29,18 +41,31 @@ void main(void) { // 2
     float avg = (r + g + b) / 3.0;
     
     vec3 lum = vec3(0.299, 0.587, 0.114);
-    vec4 blackAndWhite = vec4( vec3(dot( coloredTexture.rgb, lum)), 0.5);
     
+    vec4 blackAndWhite = vec4( vec3(dot( coloredTexture.rgb, lum)), 1.0);
+    
+    vec4 redVelvet = (avg / 170.0 < 0.5 ? vec4(0.0, 0.0, 0.0, 0.50) : vec4(1.0, 0.0, 0.0, 0.50));
+    vec3 clr = coloredTexture.rgb;
+    vec3 wb = redVelvet.rgb;
+    
+    
+    
+//    gl_FragColor = vec4(blendOverlay(clr, wb, 0.8), 1.0); //spicy
     
 //    gl_FragColor = coloredTexture * 0.5 + (avg / 170.0 < 0.5 ? vec4(0.0, 0.0, 0.0, 0.50) : vec4(1.0, 0.0, 0.0, 0.50));//redvelvet
     
 //    gl_FragColor = blackAndWhite * coloredTexture * (avg / 170.0 < 0.2 ? vec4(0.0, 1.0, 0.0, 0.70) : vec4(1.0, 0.0, 0.0, 0.80)); //semsonite
     
-    gl_FragColor = coloredTexture + coloredTexture * (avg / 170.0 < 0.2 ? vec4(0.0, 1.0, 0.0, 0.70) : vec4(0.5, 0.50, 0.0, 0.80)); // green soul
+//    gl_FragColor = coloredTexture + coloredTexture * (avg / 170.0 < 0.2 ? vec4(0.0, 1.0, 0.0, 0.70) : vec4(0.5, 0.50, 0.0, 0.80)); // sunshine
+//    gl_FragColor = coloredTexture + coloredTexture * (avg / 170.0 > 0.4 ? vec4(1.0, 0.0, 0.0, 0.70) : vec4(0.0, 0.50, 0.0, 0.80)); //reverine
+
+    
     
     
 //    gl_FragColor = coloredTexture * maskAlpha + (1.0 - maskAlpha) * b_wTexture;
 }
+
+
 /*
 float 		width = 400.0;
 float 		height = 400.0 ;
