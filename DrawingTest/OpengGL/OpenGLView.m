@@ -86,7 +86,7 @@ const GLubyte Indices2[] = {
         [self compileShaders];
         [self setupVBOs];
         _brushTexture = [self setupTexture:@"cat.png"];
-        _floorTexture = [self setupTexture:@"image.jpg"];
+        _floorTexture = [self setupTexture:@"image1.jpg"];
         _bwTexture = [self setupTexture:@"bw.jpg"];
         [self render];
         

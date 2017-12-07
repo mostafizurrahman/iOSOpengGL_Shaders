@@ -1,8 +1,7 @@
 
-#ifdef GL_ES
 precision mediump float;
 precision mediump int;
-#endif
+
 
 varying lowp vec4 DestinationColor; // 1
 
@@ -22,18 +21,15 @@ void main(void) { // 2
     lowp vec4 b_wTexture =  texture2D(TextureTop, TexCoordOut);
     lowp float Da = DestinationColor.a;
     lowp float maskAlpha = maskTexture.a;
-//    gl_FragColor = background;
-    gl_FragColor = coloredTexture * maskAlpha + (1.0 - maskAlpha) * b_wTexture;
-//    lowp float Sa = S.a;
-//    lowp vec4 R = D*(1.0 - Sa);
     
-//    if(R.a < 1.0){
-//        gl_FragColor = B;
-//    } else {
-//        gl_FragColor = R;
-//    }
+    float a = coloredTexture.a * 255.0,
+    r  = coloredTexture.r * 255.0,
+    g  = coloredTexture.g * 255.0,
+    b = coloredTexture.b * 255.0;
+    float avg = (r + g + b) / 3.0;
     
-    
+    gl_FragColor = coloredTexture * 0.5 + (avg / 170.0 < 0.5 ? vec4(0.0, 0.0, 0.0, 0.50) : vec4(1.0, 0.0, 0.0, 0.50));
+//    gl_FragColor = coloredTexture * maskAlpha + (1.0 - maskAlpha) * b_wTexture;
 }
 /*
 float 		width = 400.0;
