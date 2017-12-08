@@ -41,7 +41,7 @@
     GLuint _indexBuffer2;
     
     GLint defaultFrameBuffer;
-    GLuint framebuffer[2];
+    GLuint framebuffer;
     
     GLubyte *textureData;
     TextureLoader *textureLoader;

@@ -5,6 +5,6 @@ uniform sampler2D TextureFloor; // New
 varying lowp vec4 SourceColor1;
 void main(void) { // 2
     
-    gl_FragColor = texture2D(TextureFloor, TexCoordOut) * 0.3 ; // 3
+    gl_FragColor = SourceColor1;//texture2D(TextureFloor, TexCoordOut) ; // 3
 }
 

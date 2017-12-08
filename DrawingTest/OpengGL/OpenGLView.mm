@@ -25,26 +25,15 @@ typedef struct {
 @implementation OpenGLView
 
 - (void)render {
-    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &defaultFrameBuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer[0]);
-    [offscreenTextureLoader renderFramebufferToTexture:framebuffer[0]];
-    glViewport(0, 0, 1080, 1822);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0, 0.0, 0.0, 0.0);
+    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &defaultFrameBuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    [textureLoader renderFramebufferToTexture:framebuffer];
+    glViewport(0, 0, 1080, 1822);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer[1]);
-    
-    [textureLoader renderFramebufferToTexture:framebuffer[1]];
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glEnableVertexAttribArray(_positionSlot);
     glVertexAttribPointer(_positionSlot, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Position));
@@ -52,10 +41,10 @@ typedef struct {
     glVertexAttribPointer(_colorSlot, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Color));
     glEnableVertexAttribArray(_texCoordSlot);
     glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
-    [textureLoader activeTexture:0];
+    [textureLoader activeTexture:1];
     
     [textureLoader uploadData:textureData formMat:GL_RGBA];
-    glProgramUniform1iEXT(programHandle, _floorTexture, 0);
+    glProgramUniform1iEXT(programHandle, _floorTexture, 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
@@ -155,10 +144,10 @@ typedef struct {
 
 
 const Vertex Vertices[] = {
-    {{1, -1, 0}, {1, 0, 0, 0.5}, {1, 1}},
-    {{1, 1, 0}, {0, 1, 0, 0.4}, {1, 0}},
-    {{-1, 1, 0}, {0, 0, 1, 0.3}, {0, 0}},
-    {{-1, -1, 0}, {0, 0, 0, 0.2}, {0, 1}},
+    {{1, -1, 0}, {1, 0, 0, 1.5}, {1, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1.4}, {1, 0}},
+    {{-1, 1, 0}, {0, 0, 1, 1.3}, {0, 0}},
+    {{-1, -1, 0}, {0, 0, 0, 1.2}, {0, 1}},
 };
 
 const GLubyte Indices[] = {
@@ -249,10 +238,9 @@ const GLubyte Indices2[] = {
 }
 //
 - (void)setupFrameBuffer {
-    glGenFramebuffers(2, framebuffer);
+    glGenFramebuffers(1, &framebuffer);
     
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
-                              GL_RENDERBUFFER, _colorRenderBuffer);
+    
 }
 
 
