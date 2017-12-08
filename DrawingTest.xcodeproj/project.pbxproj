@@ -32,6 +32,8 @@
 		EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */; };
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
 		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
+		EB5ED4E81FD9E1150044CC42 /* gaussianblur.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */; };
+		EB5ED4E91FD9E1150044CC42 /* gaussianblur.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot2.jpg; sourceTree = "<group>"; };
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
+		EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = gaussianblur.fsh; path = OpengGL/gaussianblur.fsh; sourceTree = "<group>"; };
+		EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = gaussianblur.vsh; path = OpengGL/gaussianblur.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +145,8 @@
 		BE12AF8D1F9EF52000FB2186 /* DrawingTest */ = {
 			isa = PBXGroup;
 			children = (
+				EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */,
+				EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */,
 				EB5ED4E21FD9C04B0044CC42 /* image1.jpg */,
 				BEE52CB21FAA1C60001E1A7E /* bw.jpg */,
 				BEE52CAE1FAA0D48001E1A7E /* mk.png */,
@@ -316,6 +322,7 @@
 			files = (
 				BEE52CB31FAA1C60001E1A7E /* bw.jpg in Resources */,
 				EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */,
+				EB5ED4E91FD9E1150044CC42 /* gaussianblur.vsh in Resources */,
 				BEE52CB11FAA1AF3001E1A7E /* cat.png in Resources */,
 				BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */,
 				BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */,
@@ -329,6 +336,7 @@
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
 				BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */,
+				EB5ED4E81FD9E1150044CC42 /* gaussianblur.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -158,20 +158,29 @@ const GLubyte Indices2[] = {
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE );
     glTexParameteri( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE );
     
-    glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, _brushTexture);
-    glUniform1i(_textureUniform, 0);
+//    glActiveTexture(GL_TEXTURE0);
+//    glBindTexture(GL_TEXTURE_2D, _brushTexture);
+//    glUniform1i(_textureUniform, 0);
     
     glActiveTexture(GL_TEXTURE0 + 1);
     glBindTexture(GL_TEXTURE_2D, _floorTexture);
     glUniform1i(_textureFloorUniform, 1);
+    glUniform2f(direction, 0, 1);
+    glUniform1f(blur_radius, 2);
+    glUniform1f(resolution, 1920);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
+                   GL_UNSIGNED_BYTE, 0);
 
-    glActiveTexture(GL_TEXTURE0 + 2);
-    glBindTexture(GL_TEXTURE_2D, _bwTexture);
-    glUniform1i(_textureTopUniform, 2);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+//    glActiveTexture(GL_TEXTURE0 + 2);
+//    glBindTexture(GL_TEXTURE_2D, _bwTexture);
+//    glUniform1i(_textureTopUniform, 2);
+//    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     // 3
+    glUniform2f(direction, 01, 0);
+    glUniform1f(blur_radius, 2);
+    glUniform1f(resolution, 1080);
+    
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
                    GL_UNSIGNED_BYTE, 0);
 //    glDrawElements(GL_TRIANGLES, sizeof(Indices2)/sizeof(Indices2[0]),
@@ -247,8 +256,16 @@ const GLubyte Indices2[] = {
     glUseProgram(programHandle);
     
     _textureUniform = glGetUniformLocation(programHandle, "Texture");
-    
+    _blur_h = glGetUniformLocation(programHandle, "texelHeightOffset");
+    _blur_v = glGetUniformLocation(programHandle, "texelWidthOffset");
     _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
+    
+    
+    blur_radius = glGetUniformLocation(programHandle, "blur_radius");
+    direction = glGetUniformLocation(programHandle, "direction");
+    resolution = glGetUniformLocation(programHandle, "resolution");
+    
+    
     // 5
     _textureUniform = glGetUniformLocation(programHandle, "Texture");
     glActiveTexture(GL_TEXTURE0);

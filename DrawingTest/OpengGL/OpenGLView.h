@@ -12,12 +12,18 @@
 @interface OpenGLView : UIView{
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
+    CIContext *cicontext;
+    
     GLuint _colorRenderBuffer;
+    GLuint programHandle;
     
     GLuint _texCoordSlot;
     GLuint _textureUniform;
     GLuint _textureFloorUniform;
     GLuint _textureTopUniform;
+    
+    GLuint _blur_h;
+    GLuint _blur_v;
     GLuint _positionSlot;
     GLuint _colorSlot;
     
@@ -25,6 +31,9 @@
     GLuint _bwTexture;
     GLuint _brushTexture;
     
+    GLuint resolution;
+    GLuint blur_radius;
+    GLuint direction;
     
     GLuint vertexBuffer;
     GLuint indexBuffer;

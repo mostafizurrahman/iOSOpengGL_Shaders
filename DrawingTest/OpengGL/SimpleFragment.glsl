@@ -10,10 +10,54 @@ varying lowp vec2 TexCoordOut; // New
 uniform sampler2D Texture; // New
 uniform sampler2D TextureFloor;
 uniform sampler2D TextureTop;
-
+uniform lowp float flag;
 
 varying vec4 vertTexCoord;
 
+
+uniform float resolution;
+uniform float blur_radius;
+uniform vec2 direction;
+
+void main(void)
+{
+    //this will be our RGBA sum
+    vec4 sum = vec4(0.0);
+    
+    //our original texcoord for this fragment
+    vec2 tc = TexCoordOut;
+    
+    //the amount to blur, i.e. how far off center to sample from
+    //1.0 -> blur by one pixel
+    //2.0 -> blur by two pixels, etc.
+    float blur = blur_radius/resolution;
+    
+    //the direction of our blur
+    //(1.0, 0.0) -> x-axis blur
+    //(0.0, 1.0) -> y-axis blur
+    float hstep = direction.x;
+    float vstep = direction.y;
+    vec4 vColor = texture2D(Texture, TexCoordOut);
+    //apply blurring, using a 9-tap filter with predefined gaussian weights
+    
+    sum += texture2D(TextureFloor, vec2(tc.x - 4.0*blur*hstep, tc.y - 4.0*blur*vstep)) * 0.0162162162;
+    sum += texture2D(TextureFloor, vec2(tc.x - 3.0*blur*hstep, tc.y - 3.0*blur*vstep)) * 0.0540540541;
+    sum += texture2D(TextureFloor, vec2(tc.x - 2.0*blur*hstep, tc.y - 2.0*blur*vstep)) * 0.1216216216;
+    sum += texture2D(TextureFloor, vec2(tc.x - 1.0*blur*hstep, tc.y - 1.0*blur*vstep)) * 0.1945945946;
+    
+    sum += texture2D(TextureFloor, vec2(tc.x, tc.y)) * 0.2270270270;
+    
+    sum += texture2D(TextureFloor, vec2(tc.x + 1.0*blur*hstep, tc.y + 1.0*blur*vstep)) * 0.1945945946;
+    sum += texture2D(TextureFloor, vec2(tc.x + 2.0*blur*hstep, tc.y + 2.0*blur*vstep)) * 0.1216216216;
+    sum += texture2D(TextureFloor, vec2(tc.x + 3.0*blur*hstep, tc.y + 3.0*blur*vstep)) * 0.0540540541;
+    sum += texture2D(TextureFloor, vec2(tc.x + 4.0*blur*hstep, tc.y + 4.0*blur*vstep)) * 0.0162162162;
+    
+    //discard alpha for our simple demo, multiply by vertex color and return
+    gl_FragColor = vec4(sum.rgb, 1.0);
+}
+
+
+/*
 float blendOverlay(float base, float blend) {
     return base<0.5?(2.0*base*blend):(1.0-2.0*(1.0-base)*(1.0-blend));
 }
@@ -44,11 +88,11 @@ void main(void) { // 2
     
     vec4 blackAndWhite = vec4( vec3(dot( coloredTexture.rgb, lum)), 1.0);
     
-    vec4 redVelvet = (avg / 170.0 < 0.5 ? vec4(0.0, 0.0, 0.0, 0.50) : vec4(1.0, 0.0, 0.0, 0.50));
+    vec4 redVelvet = (avg / 170.0 < 0.5 ? vec4(1.0, 0.0, 0.0, 1.0) : vec4(01.0, 1.0, 0.0, 1.00));
     vec3 clr = coloredTexture.rgb;
     vec3 wb = redVelvet.rgb;
     
-    
+//    gl_FragColor = vec4(blendOverlay( wb, clr, 1.0), 1.0); //reyllo
     
 //    gl_FragColor = vec4(blendOverlay(clr, wb, 0.8), 1.0); //spicy
     
@@ -64,7 +108,7 @@ void main(void) { // 2
     
 //    gl_FragColor = coloredTexture * maskAlpha + (1.0 - maskAlpha) * b_wTexture;
 }
-
+*/
 
 /*
 float 		width = 400.0;
