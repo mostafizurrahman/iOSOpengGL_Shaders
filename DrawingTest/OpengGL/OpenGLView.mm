@@ -43,7 +43,7 @@ typedef struct {
     glVertexAttribPointer(_texCoordSlot, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
     [textureLoader activeTexture:1];
     
-    [textureLoader uploadData:textureData formMat:GL_RGBA];
+//    [textureLoader uploadData:textureData formMat:GL_RGBA];
     glProgramUniform1iEXT(programHandle, _floorTexture, 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     
@@ -64,7 +64,7 @@ typedef struct {
     
     
     
-    
+    /*
     
     [self getImage];
     
@@ -73,18 +73,18 @@ typedef struct {
     glBindFramebuffer(GL_FRAMEBUFFER, defaultFrameBuffer);
     glViewport(0, 0, 640, 1136);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
-    glUseProgram(offscreenToOnscreenShaderProgram);
+    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer2);
+    
     glEnableVertexAttribArray(offscreenToOnscreenVertexLoc);
     glVertexAttribPointer(offscreenToOnscreenVertexLoc, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, Position));
     glEnableVertexAttribArray(offscreenToOnscreenTextureCoordLoc);
     glVertexAttribPointer(offscreenToOnscreenTextureCoordLoc, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (GLvoid*) offsetof(Vertex, TexCoord));
-    [textureLoader activeTexture:1];
-    glProgramUniform1iEXT(offscreenToOnscreenShaderProgram, offscreenToOnscreenTexture, 1);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+    [textureLoader activeTexture:3];
+    glProgramUniform1iEXT(offscreenToOnscreenShaderProgram, offscreenToOnscreenTexture, 3);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer2);
     
-    glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]), GL_UNSIGNED_BYTE, 0);
-    [self getImage];
+    glDrawElements(GL_TRIANGLES, sizeof(Indices2)/sizeof(Indices2[0]), GL_UNSIGNED_BYTE, 0);
+    [self getImage];*/
     [_context presentRenderbuffer:GL_RENDERBUFFER];
     
     
@@ -157,10 +157,10 @@ const GLubyte Indices[] = {
 
 
 const Vertex Vertices2[] = {
-    {{0.5, -0.5, 0.01}, {1, 1, 1, 1}, {1, 1}},
-    {{0.5, 0.5, 0.01}, {1, 1, 1, 1}, {1, 0}},
-    {{-0.5, 0.5, 0.01}, {1, 1, 1, 1}, {0, 0}},
-    {{-0.5, -0.5, 0.01}, {1, 1, 1, 1}, {0, 1}},
+    {{1, -1, 0}, {1, 0, 0, 1.5}, {1, 1}},
+    {{1, 1, 0}, {0, 1, 0, 1.4}, {1, 0}},
+    {{-1, 1, 0}, {0, 0, 1, 1.3}, {0, 0}},
+    {{-1, -1, 0}, {0, 0, 0, 1.2}, {0, 1}},
 };
 
 const GLubyte Indices2[] = {
@@ -169,6 +169,8 @@ const GLubyte Indices2[] = {
 };
 
 - (void)setupVBOs {
+    
+  
     glGenBuffers(1, &vertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
     glBufferData(GL_ARRAY_BUFFER, sizeof(Vertices), Vertices, GL_STATIC_DRAW);
@@ -239,7 +241,6 @@ const GLubyte Indices2[] = {
 //
 - (void)setupFrameBuffer {
     glGenFramebuffers(1, &framebuffer);
-    
     
 }
 
