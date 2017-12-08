@@ -10,28 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrawingTest/OpengGL/OpenGLView.m"
-            timestampString = "534411785.538005"
+            timestampString = "534439680.152174"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
-            landmarkName = "-compileShaders"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DrawingTest/OpengGL/OpenGLView.m"
-            timestampString = "534411785.538729"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "-getGLImage"
+            startingLineNumber = "284"
+            endingLineNumber = "284"
+            landmarkName = "-compileShader:withType:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

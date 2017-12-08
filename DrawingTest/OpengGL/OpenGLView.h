@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TextureLoader.h"
 
 @interface OpenGLView : UIView{
     CAEAGLLayer* _eaglLayer;
@@ -39,7 +39,26 @@
     GLuint indexBuffer;
     GLuint _vertexBuffer2;
     GLuint _indexBuffer2;
-
+    
+    GLint defaultFrameBuffer;
+    GLuint framebuffer[2];
+    
+    GLubyte *textureData;
+    TextureLoader *textureLoader;
+    
+    
+    
+    
+    
+    
+    TextureLoader* offscreenTextureLoader;
+    
+    GLuint offscreenToOnscreenTextureCoordLoc;
+    GLuint offscreenToOnscreenVertexLoc;
+    GLuint offscreenToOnscreenTexture;
+    GLuint offscreenToOnscreenShaderProgram;
+    GLuint offscreenToOnscreenVertexBufferID;
+    GLuint offscreenToOnscreenIndexBufferID;
 }
 -(UIImage *)getGLImage;
 @end
