@@ -41,5 +41,5 @@
     GLuint _indexBuffer2;
 
 }
-
+-(UIImage *)getGLImage;
 @end

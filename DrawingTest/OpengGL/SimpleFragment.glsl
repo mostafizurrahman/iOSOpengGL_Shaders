@@ -14,7 +14,7 @@ uniform lowp float flag;
 
 varying vec4 vertTexCoord;
 
-
+//bluring fragment shader taken from here https://github.com/mattdesl/lwjgl-basics/wiki/ShaderLesson5
 uniform float resolution;
 uniform float blur_radius;
 uniform vec2 direction;

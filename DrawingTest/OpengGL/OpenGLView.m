@@ -126,6 +126,7 @@ const GLubyte Indices2[] = {
     }
     self.opaque = NO;
     self.backgroundColor = [UIColor clearColor];
+    cicontext = [CIContext contextWithEAGLContext:_context];
 //    _eaglLayer.backgroundColor = [[UIColor clearColor] CGColor];
 }
 
@@ -146,7 +147,7 @@ const GLubyte Indices2[] = {
 - (void)render {
     glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_COLOR);
-    glClearColor(0, 0.0, 0.0, 0.0);
+//    glClearColor(0, 0.0, 0.0, 0.0);
     
     glViewport(0, 0, self.frame.size.width, self.frame.size.height);
     glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
@@ -166,7 +167,7 @@ const GLubyte Indices2[] = {
     glBindTexture(GL_TEXTURE_2D, _floorTexture);
     glUniform1i(_textureFloorUniform, 1);
     glUniform2f(direction, 0, 1);
-    glUniform1f(blur_radius, 2);
+    glUniform1f(blur_radius, 2.5);
     glUniform1f(resolution, 1920);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
@@ -178,7 +179,7 @@ const GLubyte Indices2[] = {
 //    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     // 3
     glUniform2f(direction, 01, 0);
-    glUniform1f(blur_radius, 2);
+    glUniform1f(blur_radius, 2.5);
     glUniform1f(resolution, 1080);
     
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
@@ -186,7 +187,48 @@ const GLubyte Indices2[] = {
 //    glDrawElements(GL_TRIANGLES, sizeof(Indices2)/sizeof(Indices2[0]),
 //                   GL_UNSIGNED_BYTE, 0);
     [_context presentRenderbuffer:GL_RENDERBUFFER];
+    
 }
+
+-(UIImage *)getGLImage{
+    
+    
+    CGSize imageSize = CGSizeMake(1080, 1920);
+    NSUInteger length = imageSize.width * imageSize.height * 4;
+    
+    GLubyte * buffer = (GLubyte *)malloc(length * sizeof(GLubyte));
+    
+    if(buffer == NULL)
+        return nil;
+    
+    glReadPixels(0, 0, imageSize.width, imageSize.height, GL_RGBA, GL_UNSIGNED_BYTE, buffer);
+    
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer, length, NULL);
+    
+    int bitsPerComponent = 8;
+    int bitsPerPixel = 32;
+    int bytesPerRow = 4 * imageSize.width;
+    
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    CIImage *img = [[CIImage alloc] initWithTexture:_floorTexture size:imageSize flipped:YES colorSpace:colorSpaceRef];
+    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
+    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    
+    CGImageRef imageRef = CGImageCreate(imageSize.width, imageSize.height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+    
+    UIGraphicsBeginImageContext(imageSize);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0.0, 0.0, imageSize.width, imageSize.height), imageRef);
+    UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    CGImageRelease(imageRef);
+    CGColorSpaceRelease(colorSpaceRef);
+    CGDataProviderRelease(provider);
+    free(buffer);
+    
+    return image;
+}
+
 
 - (GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
     

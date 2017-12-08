@@ -19,4 +19,9 @@
 //    [self.view addSubview:_glView];
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.glView getGLImage];
+}
+
 @end
