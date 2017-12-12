@@ -3,14 +3,9 @@ precision mediump float;
 
 varying vec2 v_TextureCoordinate;
 
+uniform sampler2D u_UVTextureBase;
+uniform sampler2D u_YTextureBase;
 
-attribute vec2 TexCoordIn; // New
-varying vec2 TexCoordOut; // New
-attribute lowp vec4 SourceColor;
-varying lowp vec4 SourceColor1;
 void main(void) {
-    gl_Position = Position;
-    TexCoordOut = TexCoordIn;
-    SourceColor1 = SourceColor;
+    gl_FragColor = texture2D(u_UVTextureBase, v_TextureCoordinate);
 }
-
