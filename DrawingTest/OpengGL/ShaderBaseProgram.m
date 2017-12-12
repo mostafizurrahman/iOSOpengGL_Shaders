@@ -15,6 +15,15 @@
     NSDictionary *programErrorInfo;
     BaseTextureType textureType;
 }
+
+@property (readwrite) GLuint u_UVBaseTexture;
+@property (readwrite) GLuint u_YBaseTexture;
+
+
+@property (readwrite) GLuint u_BaseTexture;
+@property (readwrite) GLuint a_TexturePosition;
+@property (readwrite) GLuint a_TextureCoordinate;
+
 @end
 
 
@@ -56,12 +65,16 @@
 }
 
 -(void)setupCommotAttribs {
+    //get either Y texture and UV Textures OR get RGB single Texture.
     if(textureType == BaseTextureTypeYUV){
-        
+        self.u_YBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_YTextureBase");
+        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_UVTextureBase");
     } else if(textureType == BaseTextureTypeRGB){
-        
+        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_RGBTextureBase");
     }
-        
+    //Position vec4 and Texture Coordinate vec2, these two parameters are same for both YUV and RGBA texture
+    self.a_TexturePosition = glGetAttribLocation(glu_shaderProgram, "a_TexturePosition");
+    self.a_TextureCoordinate = glGetAttribLocation(glu_shaderProgram, "a_TextureCoordinate");
 }
 
 - (void)useAttribute:(NSString *)attributeName {
@@ -72,24 +85,33 @@
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+-(void)useShaderProgram{
+    glUseProgram(glu_shaderProgram);
+}
 
 #pragma -mark COMPILER SHADERS FUNCTIONS
 
+- (void)compileShaderProgram:(const GLuint)vertexShader
+                  fragShader:(const GLuint)fragmentShader{
+    
+    glu_shaderProgram = glCreateProgram();
+    glAttachShader(glu_shaderProgram, vertexShader);
+    glAttachShader(glu_shaderProgram, fragmentShader);
+    glLinkProgram(glu_shaderProgram);
+    
+    //link checkers a.k.a gl error check for shader program
+    GLint linkSuccess;
+    glGetProgramiv(glu_shaderProgram, GL_LINK_STATUS, &linkSuccess);
+    if (linkSuccess == GL_FALSE) {
+        GLchar messages[256];
+        glGetProgramInfoLog(glu_shaderProgram, sizeof(messages), 0, &messages[0]);
+        NSString *errMsg = [NSString stringWithUTF8String:messages];
+        programErrorInfo = [NSDictionary dictionaryWithObjectsAndKeys:errMsg,@"ErorrMsg", nil];
+        return;
+    }
+}
 
 - (GLuint)compileShader:(NSString*)shaderName withType:(GLenum)shaderType {
-    
     //get the shader file contents from the MainBundle
     NSString *shaderPath = [[NSBundle mainBundle] pathForResource:shaderName ofType:PRG_TYPE];
     NSError *error;

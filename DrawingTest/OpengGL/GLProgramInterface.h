@@ -26,5 +26,5 @@ typedef enum{
 -(void)useUniform:(NSString*)uniformName;
 -(GLuint)getProgramHandler;
 -(NSString *)checkGLError;
-
+-(void)useShaderProgram;
 @end
