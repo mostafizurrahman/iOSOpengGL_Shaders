@@ -9,7 +9,19 @@
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <OpenGLES/ES2/glext.h>
+typedef struct {
+    /// vertex coordinate
+    float position[3];
+    /// texture coordinate
+    float uv[2];
+} GLVertexData_t;
 
+typedef struct{
+    unsigned char* data;
+    CGSize textureSize;
+    GLenum textureFormat;
+    const int textureUnit;
+}UploadData;
 /*!
     @class          TextureRenderer
     @discussion     Provides functionality to generate and render texture. Texture data can be uploaded
@@ -66,5 +78,5 @@
  */
 -(void)deleteTexture;
 
--(void)uploadData:(GLubyte * )uploadData formMat:(GLuint)textureFormat;
+-(void)uploadData:(UploadData)uploadData;
 @end

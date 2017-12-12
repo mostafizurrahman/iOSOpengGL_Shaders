@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -55,7 +56,7 @@
             BlueprintIdentifier = "BE12AF8A1F9EF52000FB2186"
             BuildableName = "DrawingTest.app"
             BlueprintName = "DrawingTest"
-            ReferencedContainer = "container:DrawingTest.xcodeproj">
+            ReferencedContainer = "container:OpenShader.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,6 +66,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -78,7 +80,7 @@
             BlueprintIdentifier = "BE12AF8A1F9EF52000FB2186"
             BuildableName = "DrawingTest.app"
             BlueprintName = "DrawingTest"
-            ReferencedContainer = "container:DrawingTest.xcodeproj">
+            ReferencedContainer = "container:OpenShader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>

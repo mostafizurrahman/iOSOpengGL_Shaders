@@ -6,16 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DrawingTest/OpengGL/OpenGLView.m"
-            timestampString = "534439680.152174"
+            filePath = "DrawingTest/FDCameraRenderer.mm"
+            timestampString = "534460223.561438"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "-compileShader:withType:"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "-setCameraResolution:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
