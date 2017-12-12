@@ -245,11 +245,8 @@
 		EB3094591FE065F90011B937 /* ShaderPrograms */ = {
 			isa = PBXGroup;
 			children = (
-				EB3094521FE065F10011B937 /* BlurVertexShader.glsl */,
-				EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */,
-				EB3094541FE065F10011B937 /* QuadVProgram.glsl */,
-				EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */,
-				EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */,
+				EB7457901FE07D9400E19511 /* BlurShader */,
+				EB7457911FE07D9F00E19511 /* Quads_FinalOutput */,
 			);
 			name = ShaderPrograms;
 			sourceTree = "<group>";
@@ -275,6 +272,25 @@
 				EB3094601FE067E10011B937 /* BlurShaderProgram.m */,
 			);
 			name = OpenGLDT;
+			sourceTree = "<group>";
+		};
+		EB7457901FE07D9400E19511 /* BlurShader */ = {
+			isa = PBXGroup;
+			children = (
+				EB3094521FE065F10011B937 /* BlurVertexShader.glsl */,
+				EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */,
+			);
+			name = BlurShader;
+			sourceTree = "<group>";
+		};
+		EB7457911FE07D9F00E19511 /* Quads_FinalOutput */ = {
+			isa = PBXGroup;
+			children = (
+				EB3094541FE065F10011B937 /* QuadVProgram.glsl */,
+				EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */,
+				EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */,
+			);
+			name = Quads_FinalOutput;
 			sourceTree = "<group>";
 		};
 		EBB886B81FDAB3B70035FB39 /* Resources */ = {
