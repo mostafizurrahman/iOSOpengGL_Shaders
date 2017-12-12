@@ -1,4 +1,9 @@
-attribute vec4 Position;
+
+precision mediump float;
+
+varying vec2 v_TextureCoordinate;
+
+
 attribute vec2 TexCoordIn; // New
 varying vec2 TexCoordOut; // New
 attribute lowp vec4 SourceColor;

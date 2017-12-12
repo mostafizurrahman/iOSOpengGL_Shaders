@@ -9,20 +9,16 @@
 /* Begin PBXBuildFile section */
 		BE12AF901F9EF52000FB2186 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AF8F1F9EF52000FB2186 /* main.m */; };
 		BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AF921F9EF52000FB2186 /* AppDelegate.m */; };
-		BE12AF961F9EF52000FB2186 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AF951F9EF52000FB2186 /* ViewController.m */; };
 		BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE12AF971F9EF52000FB2186 /* Main.storyboard */; };
 		BE12AF9B1F9EF52000FB2186 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE12AF9A1F9EF52000FB2186 /* Assets.xcassets */; };
 		BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE12AF9C1F9EF52000FB2186 /* LaunchScreen.storyboard */; };
 		BE12AFA91F9EF52000FB2186 /* DrawingTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AFA81F9EF52000FB2186 /* DrawingTestTests.m */; };
 		BE12AFB41F9EF52000FB2186 /* DrawingTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BE12AFB31F9EF52000FB2186 /* DrawingTestUITests.m */; };
-		BE12AFC31F9EF54F00FB2186 /* DrawingView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */; };
 		BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE12AFC41F9EFB1400FB2186 /* image.jpg */; };
 		BE1C3C2D1FA0571C00D45815 /* OpenGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = BE1C3C2C1FA0571C00D45815 /* OpenGLView.mm */; };
 		BE1C3C301FA0573A00D45815 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1C3C2F1FA0573A00D45815 /* OpenGLES.framework */; };
 		BE1C3C321FA0574200D45815 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE1C3C311FA0574200D45815 /* QuartzCore.framework */; };
 		BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1C3C341FA057C400D45815 /* GLViewController.m */; };
-		BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */; };
-		BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */ = {isa = PBXBuildFile; fileRef = BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */; };
 		BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */ = {isa = PBXBuildFile; fileRef = BE3BB9601FA09E87003E63C7 /* Particle.png */; };
 		BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CAE1FAA0D48001E1A7E /* mk.png */; };
 		BEE52CB11FAA1AF3001E1A7E /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CB01FAA1AF3001E1A7E /* cat.png */; };
@@ -36,13 +32,16 @@
 		EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */; };
 		EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F81FBBA10800B8DCC7 /* spot.jpg */; };
 		EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */; };
+		EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30944B1FE05A350011B937 /* TextureLoader.m */; };
+		EB3094501FE065D70011B937 /* ShaderBaseProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */; };
+		EB3094551FE065F10011B937 /* RGBQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */; };
+		EB3094561FE065F10011B937 /* BlurVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094521FE065F10011B937 /* BlurVertexShader.glsl */; };
+		EB3094571FE065F10011B937 /* BlurFrgmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */; };
+		EB3094581FE065F10011B937 /* QuadVProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094541FE065F10011B937 /* QuadVProgram.glsl */; };
+		EB3094611FE067E10011B937 /* BlurShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3094601FE067E10011B937 /* BlurShaderProgram.m */; };
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
 		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
-		EB5ED4E81FD9E1150044CC42 /* gaussianblur.fsh in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */; };
-		EB5ED4E91FD9E1150044CC42 /* gaussianblur.vsh in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */; };
-		EB8208E21FDACF7600A8D007 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB8208E01FDACF7600A8D007 /* TextureLoader.m */; };
-		EB8208E41FDAEDFA00A8D007 /* OSVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB8208E31FDAEDFA00A8D007 /* OSVShader.glsl */; };
-		EB8208E61FDAEE0D00A8D007 /* OSFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB8208E51FDAEE0D00A8D007 /* OSFShader.glsl */; };
+		EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +66,6 @@
 		BE12AF8F1F9EF52000FB2186 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE12AF911F9EF52000FB2186 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BE12AF921F9EF52000FB2186 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		BE12AF941F9EF52000FB2186 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		BE12AF951F9EF52000FB2186 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BE12AF981F9EF52000FB2186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE12AF9A1F9EF52000FB2186 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE12AF9D1F9EF52000FB2186 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -79,17 +76,13 @@
 		BE12AFAF1F9EF52000FB2186 /* DrawingTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrawingTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE12AFB31F9EF52000FB2186 /* DrawingTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingTestUITests.m; sourceTree = "<group>"; };
 		BE12AFB51F9EF52000FB2186 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BE12AFC11F9EF54F00FB2186 /* DrawingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawingView.h; sourceTree = "<group>"; };
-		BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DrawingView.mm; sourceTree = "<group>"; };
 		BE12AFC41F9EFB1400FB2186 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
-		BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenGLView.h; path = OpengGL/OpenGLView.h; sourceTree = "<group>"; };
-		BE1C3C2C1FA0571C00D45815 /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = OpenGLView.mm; path = OpengGL/OpenGLView.mm; sourceTree = "<group>"; };
+		BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenGLView.h; sourceTree = "<group>"; };
+		BE1C3C2C1FA0571C00D45815 /* OpenGLView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenGLView.mm; sourceTree = "<group>"; };
 		BE1C3C2F1FA0573A00D45815 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BE1C3C311FA0574200D45815 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		BE1C3C331FA057C400D45815 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLViewController.h; path = OpengGL/GLViewController.h; sourceTree = "<group>"; };
-		BE1C3C341FA057C400D45815 /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLViewController.m; path = OpengGL/GLViewController.m; sourceTree = "<group>"; };
-		BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleVertex.glsl; path = OpengGL/SimpleVertex.glsl; sourceTree = "<group>"; };
-		BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = SimpleFragment.glsl; path = OpengGL/SimpleFragment.glsl; sourceTree = "<group>"; };
+		BE1C3C331FA057C400D45815 /* GLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLViewController.h; sourceTree = "<group>"; };
+		BE1C3C341FA057C400D45815 /* GLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLViewController.m; sourceTree = "<group>"; };
 		BE3BB9601FA09E87003E63C7 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Particle.png; sourceTree = "<group>"; };
 		BEE52CAE1FAA0D48001E1A7E /* mk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mk.png; sourceTree = "<group>"; };
 		BEE52CB01FAA1AF3001E1A7E /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
@@ -108,14 +101,20 @@
 		EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpeg; sourceTree = "<group>"; };
 		EB0F84F81FBBA10800B8DCC7 /* spot.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot.jpg; sourceTree = "<group>"; };
 		EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = spot2.jpg; sourceTree = "<group>"; };
+		EB30944A1FE05A340011B937 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
+		EB30944B1FE05A350011B937 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
+		EB30944E1FE065D60011B937 /* ShaderBaseProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShaderBaseProgram.h; path = OpengGL/ShaderBaseProgram.h; sourceTree = "<group>"; };
+		EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ShaderBaseProgram.m; path = OpengGL/ShaderBaseProgram.m; sourceTree = "<group>"; };
+		EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RGBQuadFProgram.glsl; path = OpengGL/RGBQuadFProgram.glsl; sourceTree = "<group>"; };
+		EB3094521FE065F10011B937 /* BlurVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BlurVertexShader.glsl; path = OpengGL/BlurVertexShader.glsl; sourceTree = "<group>"; };
+		EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BlurFrgmentShader.glsl; path = OpengGL/BlurFrgmentShader.glsl; sourceTree = "<group>"; };
+		EB3094541FE065F10011B937 /* QuadVProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = QuadVProgram.glsl; path = OpengGL/QuadVProgram.glsl; sourceTree = "<group>"; };
+		EB30945C1FE066EE0011B937 /* GLProgramInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLProgramInterface.h; path = OpengGL/GLProgramInterface.h; sourceTree = "<group>"; };
+		EB30945F1FE067E10011B937 /* BlurShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlurShaderProgram.h; path = OpengGL/BlurShaderProgram.h; sourceTree = "<group>"; };
+		EB3094601FE067E10011B937 /* BlurShaderProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlurShaderProgram.m; path = OpengGL/BlurShaderProgram.m; sourceTree = "<group>"; };
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
-		EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = gaussianblur.fsh; sourceTree = "<group>"; };
-		EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = gaussianblur.vsh; sourceTree = "<group>"; };
-		EB8208E01FDACF7600A8D007 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
-		EB8208E11FDACF7600A8D007 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
-		EB8208E31FDAEDFA00A8D007 /* OSVShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = OSVShader.glsl; sourceTree = "<group>"; };
-		EB8208E51FDAEE0D00A8D007 /* OSFShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = OSFShader.glsl; sourceTree = "<group>"; };
+		EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YUVQuadFProgram.glsl; path = OpengGL/YUVQuadFProgram.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,20 +170,9 @@
 		BE12AF8D1F9EF52000FB2186 /* DrawingTest */ = {
 			isa = PBXGroup;
 			children = (
+				EB30944D1FE0659D0011B937 /* OpengGL */,
 				EBB886B81FDAB3B70035FB39 /* Resources */,
 				BE12AF8E1F9EF52000FB2186 /* Supporting Files */,
-				BE12AFC11F9EF54F00FB2186 /* DrawingView.h */,
-				BE12AFC21F9EF54F00FB2186 /* DrawingView.mm */,
-				BE1C3C331FA057C400D45815 /* GLViewController.h */,
-				BE1C3C341FA057C400D45815 /* GLViewController.m */,
-				BE1C3C361FA0583C00D45815 /* SimpleVertex.glsl */,
-				BE1C3C381FA0586700D45815 /* SimpleFragment.glsl */,
-				EB8208E11FDACF7600A8D007 /* TextureLoader.h */,
-				EB8208E01FDACF7600A8D007 /* TextureLoader.m */,
-				BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */,
-				BE1C3C2C1FA0571C00D45815 /* OpenGLView.mm */,
-				EB8208E31FDAEDFA00A8D007 /* OSVShader.glsl */,
-				EB8208E51FDAEE0D00A8D007 /* OSFShader.glsl */,
 				EB0DD1191FDB24800047FFA2 /* IPVFD */,
 			);
 			path = DrawingTest;
@@ -193,7 +181,6 @@
 		BE12AF8E1F9EF52000FB2186 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BE12AF8F1F9EF52000FB2186 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -230,6 +217,8 @@
 		EB0DD1191FDB24800047FFA2 /* IPVFD */ = {
 			isa = PBXGroup;
 			children = (
+				EB30944A1FE05A340011B937 /* TextureLoader.h */,
+				EB30944B1FE05A350011B937 /* TextureLoader.m */,
 				EB0456661FDB1C4E00247AF4 /* CameraGLView.h */,
 				EB0456671FDB1C4E00247AF4 /* CameraGLView.m */,
 				EB04566A1FDB1F0F00247AF4 /* FDCameraRenderer.h */,
@@ -243,11 +232,54 @@
 			name = IPVFD;
 			sourceTree = "<group>";
 		};
+		EB30944D1FE0659D0011B937 /* OpengGL */ = {
+			isa = PBXGroup;
+			children = (
+				EB3094591FE065F90011B937 /* ShaderPrograms */,
+				EB30945A1FE0661F0011B937 /* OpenGLUI */,
+				EB30945B1FE0662E0011B937 /* OpenGLDT */,
+			);
+			name = OpengGL;
+			sourceTree = "<group>";
+		};
+		EB3094591FE065F90011B937 /* ShaderPrograms */ = {
+			isa = PBXGroup;
+			children = (
+				EB3094521FE065F10011B937 /* BlurVertexShader.glsl */,
+				EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */,
+				EB3094541FE065F10011B937 /* QuadVProgram.glsl */,
+				EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */,
+				EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */,
+			);
+			name = ShaderPrograms;
+			sourceTree = "<group>";
+		};
+		EB30945A1FE0661F0011B937 /* OpenGLUI */ = {
+			isa = PBXGroup;
+			children = (
+				BE1C3C2B1FA0571C00D45815 /* OpenGLView.h */,
+				BE1C3C2C1FA0571C00D45815 /* OpenGLView.mm */,
+				BE1C3C331FA057C400D45815 /* GLViewController.h */,
+				BE1C3C341FA057C400D45815 /* GLViewController.m */,
+			);
+			name = OpenGLUI;
+			sourceTree = "<group>";
+		};
+		EB30945B1FE0662E0011B937 /* OpenGLDT */ = {
+			isa = PBXGroup;
+			children = (
+				EB30945C1FE066EE0011B937 /* GLProgramInterface.h */,
+				EB30944E1FE065D60011B937 /* ShaderBaseProgram.h */,
+				EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */,
+				EB30945F1FE067E10011B937 /* BlurShaderProgram.h */,
+				EB3094601FE067E10011B937 /* BlurShaderProgram.m */,
+			);
+			name = OpenGLDT;
+			sourceTree = "<group>";
+		};
 		EBB886B81FDAB3B70035FB39 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EB5ED4E61FD9E1140044CC42 /* gaussianblur.fsh */,
-				EB5ED4E71FD9E1140044CC42 /* gaussianblur.vsh */,
 				EB5ED4E21FD9C04B0044CC42 /* image1.jpg */,
 				BEE52CB21FAA1C60001E1A7E /* bw.jpg */,
 				BEE52CAE1FAA0D48001E1A7E /* mk.png */,
@@ -256,8 +288,6 @@
 				BE3BB9601FA09E87003E63C7 /* Particle.png */,
 				BE12AF911F9EF52000FB2186 /* AppDelegate.h */,
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
-				BE12AF941F9EF52000FB2186 /* ViewController.h */,
-				BE12AF951F9EF52000FB2186 /* ViewController.m */,
 				EB5ED4E41FD9C9220044CC42 /* img.png */,
 				BE12AFC41F9EFB1400FB2186 /* image.jpg */,
 				EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */,
@@ -266,6 +296,7 @@
 				BE12AF9A1F9EF52000FB2186 /* Assets.xcassets */,
 				BE12AF9C1F9EF52000FB2186 /* LaunchScreen.storyboard */,
 				BE12AF9F1F9EF52000FB2186 /* Info.plist */,
+				BE12AF8F1F9EF52000FB2186 /* main.m */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -332,6 +363,7 @@
 		BE12AF831F9EF52000FB2186 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GS;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Mostafizur Rahman";
 				TargetAttributes = {
@@ -352,7 +384,7 @@
 					};
 				};
 			};
-			buildConfigurationList = BE12AF861F9EF52000FB2186 /* Build configuration list for PBXProject "DrawingTest" */;
+			buildConfigurationList = BE12AF861F9EF52000FB2186 /* Build configuration list for PBXProject "OpenShader" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -377,25 +409,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB3094551FE065F10011B937 /* RGBQuadFProgram.glsl in Resources */,
+				EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */,
 				BEE52CB31FAA1C60001E1A7E /* bw.jpg in Resources */,
-				EB8208E41FDAEDFA00A8D007 /* OSVShader.glsl in Resources */,
 				EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */,
-				EB5ED4E91FD9E1150044CC42 /* gaussianblur.vsh in Resources */,
 				BEE52CB11FAA1AF3001E1A7E /* cat.png in Resources */,
 				BE12AF9E1F9EF52000FB2186 /* LaunchScreen.storyboard in Resources */,
+				EB3094571FE065F10011B937 /* BlurFrgmentShader.glsl in Resources */,
 				BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */,
+				EB3094561FE065F10011B937 /* BlurVertexShader.glsl in Resources */,
 				BE12AF9B1F9EF52000FB2186 /* Assets.xcassets in Resources */,
-				EB8208E61FDAEE0D00A8D007 /* OSFShader.glsl in Resources */,
 				EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */,
+				EB3094581FE065F10011B937 /* QuadVProgram.glsl in Resources */,
 				EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */,
 				EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */,
-				BE1C3C371FA0583C00D45815 /* SimpleVertex.glsl in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
 				EB5ED4E51FD9C9220044CC42 /* img.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
-				BE1C3C391FA0586700D45815 /* SimpleFragment.glsl in Resources */,
-				EB5ED4E81FD9E1150044CC42 /* gaussianblur.fsh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,13 +454,13 @@
 				EB04566C1FDB1F0F00247AF4 /* FDCameraRenderer.mm in Sources */,
 				EB0DD1181FDB24750047FFA2 /* FDCameraViewController.mm in Sources */,
 				EB0456681FDB1C4E00247AF4 /* CameraGLView.m in Sources */,
-				BE12AF961F9EF52000FB2186 /* ViewController.m in Sources */,
-				EB8208E21FDACF7600A8D007 /* TextureLoader.m in Sources */,
 				BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */,
+				EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */,
 				BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */,
 				EB0DD1171FDB24750047FFA2 /* FDCameraSessionHandler.mm in Sources */,
 				BE12AF901F9EF52000FB2186 /* main.m in Sources */,
-				BE12AFC31F9EF54F00FB2186 /* DrawingView.mm in Sources */,
+				EB3094611FE067E10011B937 /* BlurShaderProgram.m in Sources */,
+				EB3094501FE065D70011B937 /* ShaderBaseProgram.m in Sources */,
 				BE1C3C2D1FA0571C00D45815 /* OpenGLView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -652,7 +683,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		BE12AF861F9EF52000FB2186 /* Build configuration list for PBXProject "DrawingTest" */ = {
+		BE12AF861F9EF52000FB2186 /* Build configuration list for PBXProject "OpenShader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BE12AFB61F9EF52000FB2186 /* Debug */,

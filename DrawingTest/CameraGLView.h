@@ -50,22 +50,22 @@
 
 
 
-/*!
- @method         clearGL
- @abstract       Clear GL rendering
- @discussion     Finish remaining GL commands and stops rendering until initializeGL
- is called again. This must be called when application enters background
- */
-- (void) clearGL;
-
-/*!
- @method         initializeGL
- @abstract       Initialize GL rendering
- @discussion     Makes the view ready to render until clearGL called. But it doesn't
- start rendering immediately but render method renders GL. This must
- be called when application enters foreground.
- */
-- (void) initializeGL;
+///*!
+// @method         clearGL
+// @abstract       Clear GL rendering
+// @discussion     Finish remaining GL commands and stops rendering until initializeGL
+// is called again. This must be called when application enters background
+// */
+//- (void) clearGL;
+//
+///*!
+// @method         initializeGL
+// @abstract       Initialize GL rendering
+// @discussion     Makes the view ready to render until clearGL called. But it doesn't
+// start rendering immediately but render method renders GL. This must
+// be called when application enters foreground.
+// */
+//- (void) initializeGL;
 
 
 
