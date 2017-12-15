@@ -86,9 +86,7 @@
         [EAGLContext setCurrentContext: nil];
         openglContext = nil;
         [drawingContext clearCaches];
-        [self deleteDrawable];
     }
-    
 }
 
 //OpenGLES backed CIContext for faster drawing.

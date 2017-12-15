@@ -45,6 +45,8 @@
 		EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE41FE3A5D200951581 /* TCCameraSession.m */; };
 		EB754DEB1FE3A5E500951581 /* GLKDetectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.m */; };
 		EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */; };
+		EB754DF11FE3CA3800951581 /* FaceMaskVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */; };
+		EB754DF31FE3CA4D00951581 /* FaceMaskFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKDetectionView.h; sourceTree = "<group>"; };
 		EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
+		EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = FaceMaskVShader.glsl; path = OpengGL/CameraFaceMask/FaceMaskVShader.glsl; sourceTree = "<group>"; };
+		EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FaceMaskFShader.glsl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,7 @@
 		EB3094591FE065F90011B937 /* ShaderPrograms */ = {
 			isa = PBXGroup;
 			children = (
+				EB754DEF1FE3C9F900951581 /* FaceMaskDrawing */,
 				EB7457901FE07D9400E19511 /* BlurShader */,
 				EB7457911FE07D9F00E19511 /* Quads_FinalOutput */,
 			);
@@ -306,6 +311,15 @@
 				EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */,
 			);
 			name = Quads_FinalOutput;
+			sourceTree = "<group>";
+		};
+		EB754DEF1FE3C9F900951581 /* FaceMaskDrawing */ = {
+			isa = PBXGroup;
+			children = (
+				EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */,
+				EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */,
+			);
+			name = FaceMaskDrawing;
 			sourceTree = "<group>";
 		};
 		EBB886B81FDAB3B70035FB39 /* Resources */ = {
@@ -440,6 +454,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB754DF11FE3CA3800951581 /* FaceMaskVShader.glsl in Resources */,
 				EB3094551FE065F10011B937 /* RGBQuadFProgram.glsl in Resources */,
 				EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */,
 				BEE52CB31FAA1C60001E1A7E /* bw.jpg in Resources */,
@@ -455,6 +470,7 @@
 				EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */,
 				EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
+				EB754DF31FE3CA4D00951581 /* FaceMaskFShader.glsl in Resources */,
 				EB5ED4E51FD9C9220044CC42 /* img.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,

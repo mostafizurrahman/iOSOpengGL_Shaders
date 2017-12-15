@@ -67,10 +67,10 @@
 -(void)setupCommotAttribs {
     //get either Y texture and UV Textures OR get RGB single Texture.
     if(textureType == BaseTextureTypeYUV){
-        self.u_YBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_YTextureBase");
-        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_UVTextureBase");
+        self.u_YBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseY");
+        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseUV");
     } else if(textureType == BaseTextureTypeRGB){
-        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_RGBTextureBase");
+        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseRGB");
     }
     //Position vec4 and Texture Coordinate vec2, these two parameters are same for both YUV and RGBA texture
     self.a_TexturePosition = glGetAttribLocation(glu_shaderProgram, "a_TexturePosition");
