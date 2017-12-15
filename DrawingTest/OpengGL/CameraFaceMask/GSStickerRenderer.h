@@ -11,7 +11,6 @@
 #import "GSMediaRenderer.h"
 
 @interface GSStickerRenderer : GSMediaRenderer{
-    FDShaderProgram *_shaderProgram;
     GLuint stickerTextureID;
 }
 

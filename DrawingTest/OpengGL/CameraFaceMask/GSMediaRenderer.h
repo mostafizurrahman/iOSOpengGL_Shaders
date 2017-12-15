@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "GSMediaInterFace.h"
 
-@interface GSMediaRenderer : NSObject<GSMediaInterFace>
+@interface GSMediaRenderer : NSObject<GSMediaInterFace>{
+    FDShaderProgram *_shaderProgram;
+}
 
 @end

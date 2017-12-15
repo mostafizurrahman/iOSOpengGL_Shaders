@@ -48,6 +48,8 @@
 		EB754DEB1FE3A5E500951581 /* GLKDetectionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.mm */; };
 		EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */; };
 		EB754DF11FE3CA3800951581 /* FaceMaskVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */; };
+		EBD72A641FE4603100C39F68 /* BCStickerData.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD72A601FE4603100C39F68 /* BCStickerData.m */; };
+		EBD72A651FE4603100C39F68 /* FDAnimationData.m in Sources */ = {isa = PBXBuildFile; fileRef = EBD72A631FE4603100C39F68 /* FDAnimationData.m */; };
 		EBFDCBFA1FE42DB300F18980 /* GSCameraRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCBF91FE42DB300F18980 /* GSCameraRenderer.mm */; };
 		EBFDCBFE1FE4316200F18980 /* GSStickerRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCBFD1FE4316200F18980 /* GSStickerRenderer.mm */; };
 		EBFDCC011FE4379E00F18980 /* GSAnimationRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCC001FE4379E00F18980 /* GSAnimationRenderer.mm */; };
@@ -135,6 +137,12 @@
 		EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 		EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = FaceMaskVShader.glsl; path = OpengGL/CameraFaceMask/FaceMaskVShader.glsl; sourceTree = "<group>"; };
+		EBD72A5F1FE4603000C39F68 /* BCStickerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCStickerInterface.h; sourceTree = "<group>"; };
+		EBD72A601FE4603100C39F68 /* BCStickerData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCStickerData.m; sourceTree = "<group>"; };
+		EBD72A611FE4603100C39F68 /* BCStickerData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCStickerData.h; sourceTree = "<group>"; };
+		EBD72A621FE4603100C39F68 /* FDAnimationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FDAnimationData.h; sourceTree = "<group>"; };
+		EBD72A631FE4603100C39F68 /* FDAnimationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FDAnimationData.m; sourceTree = "<group>"; };
+		EBD72A661FE4631000C39F68 /* BCDefinedConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCDefinedConstant.h; sourceTree = "<group>"; };
 		EBFDCBF81FE42DB300F18980 /* GSCameraRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSCameraRenderer.h; path = OpengGL/CameraFaceMask/GSCameraRenderer.h; sourceTree = "<group>"; };
 		EBFDCBF91FE42DB300F18980 /* GSCameraRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GSCameraRenderer.mm; path = OpengGL/CameraFaceMask/GSCameraRenderer.mm; sourceTree = "<group>"; };
 		EBFDCBFC1FE4316200F18980 /* GSStickerRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSStickerRenderer.h; path = OpengGL/CameraFaceMask/GSStickerRenderer.h; sourceTree = "<group>"; };
@@ -210,6 +218,11 @@
 		BE12AF8E1F9EF52000FB2186 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				EBD72A611FE4603100C39F68 /* BCStickerData.h */,
+				EBD72A601FE4603100C39F68 /* BCStickerData.m */,
+				EBD72A5F1FE4603000C39F68 /* BCStickerInterface.h */,
+				EBD72A621FE4603100C39F68 /* FDAnimationData.h */,
+				EBD72A631FE4603100C39F68 /* FDAnimationData.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 		EB30944D1FE0659D0011B937 /* OpengGL */ = {
 			isa = PBXGroup;
 			children = (
+				EBD72A661FE4631000C39F68 /* BCDefinedConstant.h */,
 				EB754DE31FE3A5D200951581 /* TCCameraSession.h */,
 				EB754DE41FE3A5D200951581 /* TCCameraSession.m */,
 				EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */,
@@ -543,7 +557,9 @@
 				EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */,
 				EBFDCBFE1FE4316200F18980 /* GSStickerRenderer.mm in Sources */,
 				EBFDCC041FE4448F00F18980 /* GSMediaRenderer.m in Sources */,
+				EBD72A641FE4603100C39F68 /* BCStickerData.m in Sources */,
 				EBFDCBFA1FE42DB300F18980 /* GSCameraRenderer.mm in Sources */,
+				EBD72A651FE4603100C39F68 /* FDAnimationData.m in Sources */,
 				EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */,
 				BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */,
 				EB0DD1171FDB24750047FFA2 /* FDCameraSessionHandler.mm in Sources */,

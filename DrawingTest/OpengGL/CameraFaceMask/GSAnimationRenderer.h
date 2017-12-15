@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "GSCameraRenderer.h"
+#import "FDAnimationData.h"
 
 
 
 
 @interface GSAnimationRenderer : GSMediaRenderer{
-    FDShaderProgram *_shaderProgram;
+    FDAnimationData *_animationData;
+    GLuint backgroundTextureID;
+    GLuint frameImageTextureID;
 }
 
 -(instancetype)initWithProgram:(FDShaderProgram *)shaderProgram;
+
+-(void)changeAnimation:(FDAnimationData *)animationData;
 
 @end

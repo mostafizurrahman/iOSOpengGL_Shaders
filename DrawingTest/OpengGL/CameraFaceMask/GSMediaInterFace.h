@@ -12,5 +12,9 @@
 @protocol GSMediaInterFace<NSObject>
 @required
 - (GLuint)setupTexture:(UIImage *)stickerImage;
-
+-(void)renderTexture:(GLuint)textureID
+             atIndex:(const int)index
+     uniformLocation:(const GLuint)locatoin;
+-(void)setTextParameters;
+-(void)deleteTexture:(GLuint *)textureID;
 @end

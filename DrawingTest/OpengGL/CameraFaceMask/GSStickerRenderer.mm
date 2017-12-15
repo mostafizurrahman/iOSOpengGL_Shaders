@@ -18,30 +18,26 @@
 }
 
 -(void)uploadStickerImage:(UIImage *)stickerImage{
-    glBindTexture(GL_TEXTURE_2D, stickerTextureID);
-    glDeleteTextures(1, &stickerTextureID);
-    stickerTextureID = 0;
+    [super deleteTexture:&stickerTextureID];
     stickerTextureID = [super setupTexture:stickerImage];
+    [super setTextParameters];
     NSLog(@"image tx id for sticekr %u", stickerTextureID);
 }
 
 -(void)updateStickerFrame:(const float[4])stickerFrame{
-    GLuint faceBoundUniform = [[_shaderProgram.uniformDictionary objectForKey:@"u_faceRectangle"]
-                           unsignedIntValue];
+    glEnableVertexAttribArray(_shaderProgram.u_faceRect);
     glProgramUniform4fvEXT([_shaderProgram getProgramHandler],
-                           faceBoundUniform, 1, stickerFrame);
+                           _shaderProgram.u_faceRect, 1, stickerFrame);
 }
 
 -(void)updateStickerAngle:(const float)faceAngle{
-    
-    GLuint angleUniform = [[_shaderProgram.uniformDictionary objectForKey:@"u_faceAngle"]
-                           unsignedIntValue];
-    
-    glUniform1f(angleUniform, faceAngle);
+    glEnableVertexAttribArray(_shaderProgram.u_faceRect);
+    glUniform1f(_shaderProgram.u_faceRect, faceAngle);
 }
 
 -(void)renderSticker{
-    
+    [super renderTexture:stickerTextureID atIndex:STICKER_TEXTURE_UNIT
+         uniformLocation:_shaderProgram.u_textureSticker];
 }
 
 

@@ -25,6 +25,8 @@
 #import <Foundation/Foundation.h>
 #include <OpenGLES/ES2/gl.h>
 #include <OpenGLES/ES2/glext.h>
+#import "BCDefinedConstant.h"
+
 
 #define PRG_TYPE @"glsl"
 
@@ -45,6 +47,12 @@ const GLubyte DefaultIndices[] = {
     0, 1, 2,
     2, 3, 0
 };
+
+#define STICKER_TEXTURE_UNIT 5
+#define ANIMBGR_TEXTURE_UNIT 4
+#define ANIMFRM_TEXTURE_UNIT 3
+#define CAMERAF_TEXTURE_UNIT 2
+#define DEFAULT_TEXTURE_UNIT 1
 
 const VertexData_t DefaultVertices[] = {
     {{1, -1, 0}, {1, 0, 0, 1.0}, {1, 1}},

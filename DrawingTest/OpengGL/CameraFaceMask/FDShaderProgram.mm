@@ -8,9 +8,26 @@
 
 #import "FDShaderProgram.h"
 
+@interface FDShaderProgram(){
+    
+}
+@property (readwrite) GLuint u_textureAnimBackground;
+@property (readwrite) GLuint u_textureAnimationFrame;
+@property (readwrite) GLuint u_textureSticker;
+
+//uniforms of face detection rectangle
+@property (readwrite) GLuint u_faceRect;
+@property (readwrite) GLuint u_faceAngle;
+@end
+
 @implementation FDShaderProgram
 
+@synthesize u_textureAnimBackground;
+@synthesize u_textureAnimationFrame;
+@synthesize u_textureSticker;
 
+@synthesize u_faceRect;
+@synthesize u_faceAngle;
 
 -(instancetype)initWithVShader:(NSString *)vshaderName
             withFragmentShader:(NSString *)fshaderName
@@ -32,6 +49,9 @@
     u_textureAnimationFrame = glGetUniformLocation([self getProgramHandler], "u_TextureAnimationFrame");
     [self.uniformDictionary setObject:[NSNumber numberWithInteger:u_textureAnimationFrame]
                                forKey:@"u_TextureAnimationFrame"];
+    u_textureSticker = glGetUniformLocation([self getProgramHandler], "u_TextureStickerTexture");
+    [self.uniformDictionary setObject:[NSNumber numberWithInteger:u_textureSticker]
+                               forKey:@"u_TextureStickerTexture"];
 }
 
 -(void)setupFaceDetectionUniforms{

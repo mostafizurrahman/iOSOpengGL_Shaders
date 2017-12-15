@@ -11,11 +11,12 @@
 #import "GSMediaRenderer.h"
 
 @interface GSCameraRenderer : GSMediaRenderer{
-    FDShaderProgram *_shaderProgram;
+   
+    GLuint cameraTextureID;
     EAGLContext *openglContext;
 }
 
 -(instancetype)initWithContext:(EAGLContext *)glContext opengProgram:(FDShaderProgram *)faceDetectionProgram;
 
-
+-(void)renderCameraBuffer:(unsigned char*) cameraData;
 @end

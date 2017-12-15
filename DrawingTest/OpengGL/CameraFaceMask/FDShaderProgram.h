@@ -16,6 +16,7 @@
     //uniform of aditional image textures
     GLuint u_textureAnimBackground;
     GLuint u_textureAnimationFrame;
+    GLuint u_textureSticker;
     
     //uniforms of face detection rectangle
     GLuint u_faceRect;
@@ -26,5 +27,11 @@
 }
 
 
+@property (readonly) GLuint u_textureAnimBackground;
+@property (readonly) GLuint u_textureAnimationFrame;
+@property (readonly) GLuint u_textureSticker;
 
+//uniforms of face detection rectangle
+@property (readonly) GLuint u_faceRect;
+@property (readonly) GLuint u_faceAngle;
 @end
