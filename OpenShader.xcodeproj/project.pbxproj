@@ -42,6 +42,9 @@
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
 		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
 		EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */; };
+		EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE41FE3A5D200951581 /* TCCameraSession.m */; };
+		EB754DEB1FE3A5E500951581 /* GLKDetectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.m */; };
+		EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +118,12 @@
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YUVQuadFProgram.glsl; path = OpengGL/YUVQuadFProgram.glsl; sourceTree = "<group>"; };
+		EB754DE31FE3A5D200951581 /* TCCameraSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCameraSession.h; sourceTree = "<group>"; };
+		EB754DE41FE3A5D200951581 /* TCCameraSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCameraSession.m; sourceTree = "<group>"; };
+		EB754DE91FE3A5E400951581 /* GLKDetectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKDetectionView.m; sourceTree = "<group>"; };
+		EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKDetectionView.h; sourceTree = "<group>"; };
+		EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
+		EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +244,12 @@
 		EB30944D1FE0659D0011B937 /* OpengGL */ = {
 			isa = PBXGroup;
 			children = (
+				EB754DE31FE3A5D200951581 /* TCCameraSession.h */,
+				EB754DE41FE3A5D200951581 /* TCCameraSession.m */,
+				EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */,
+				EB754DE91FE3A5E400951581 /* GLKDetectionView.m */,
+				EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */,
+				EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */,
 				EB3094591FE065F90011B937 /* ShaderPrograms */,
 				EB30945A1FE0661F0011B937 /* OpenGLUI */,
 				EB30945B1FE0662E0011B937 /* OpenGLDT */,
@@ -385,7 +400,7 @@
 				TargetAttributes = {
 					BE12AF8A1F9EF52000FB2186 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = W7CT22M8UH;
+						DevelopmentTeam = 2VZ7V842VP;
 						ProvisioningStyle = Automatic;
 					};
 					BE12AFA31F9EF52000FB2186 = {
@@ -468,13 +483,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB04566C1FDB1F0F00247AF4 /* FDCameraRenderer.mm in Sources */,
+				EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */,
 				EB0DD1181FDB24750047FFA2 /* FDCameraViewController.mm in Sources */,
 				EB0456681FDB1C4E00247AF4 /* CameraGLView.m in Sources */,
 				BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */,
+				EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */,
 				EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */,
 				BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */,
 				EB0DD1171FDB24750047FFA2 /* FDCameraSessionHandler.mm in Sources */,
 				BE12AF901F9EF52000FB2186 /* main.m in Sources */,
+				EB754DEB1FE3A5E500951581 /* GLKDetectionView.m in Sources */,
 				EB3094611FE067E10011B937 /* BlurShaderProgram.m in Sources */,
 				EB3094501FE065D70011B937 /* ShaderBaseProgram.m in Sources */,
 				BE1C3C2D1FA0571C00D45815 /* OpenGLView.mm in Sources */,
@@ -627,12 +645,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = W7CT22M8UH;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
 				INFOPLIST_FILE = DrawingTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -641,12 +661,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = W7CT22M8UH;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2VZ7V842VP;
 				INFOPLIST_FILE = DrawingTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ipvision.ca;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
