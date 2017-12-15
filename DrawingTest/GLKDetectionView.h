@@ -25,6 +25,7 @@
 
 @interface GLKDetectionView : GLKView
 -(BOOL)setupOpenGLContext;
+-(void)setCameraSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 -(void)setVideoDelegate:(id)delegate;
 
 @property (readwrite) dispatch_queue_t videoOutputQueue;

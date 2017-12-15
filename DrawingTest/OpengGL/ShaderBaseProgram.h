@@ -9,7 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "GLProgramInterface.h"
 
-@interface ShaderBaseProgram : NSObject<GLProgramInterface>
+@interface ShaderBaseProgram : NSObject<GLProgramInterface>{
+    
+    //FrameBuffer, RenderBuffer, VertexBuffer and IndeBuffer IDs
+    GLuint base_indexBufferID;
+    GLuint base_vertexBufferID;
+    GLuint defaultFrameBufferID;
+    GLuint renderBufferID;
+    
+}
+
+
 -(instancetype)initWithVShader:(NSString *)vshaderName
             withFragmentShader:(NSString *)fshaderName
                    textureType:(BaseTextureType)t_type;
@@ -23,7 +33,12 @@
                                         //i.e. image is not RGB but YUV
 
 
-@property (readonly) GLuint u_BaseTexture; //FOR RGB base image it will be single one to represent an image
+@property (readonly) GLuint u_BaseTextureRGB; //FOR RGB base image it will be single one to represent an image
+
+
 @property (readonly) GLuint a_TexturePosition;
 @property (readonly) GLuint a_TextureCoordinate;
+
+@property (readonly) NSMutableDictionary *uniformDictionary;
+@property (readonly) NSMutableDictionary *attributeDictionary;
 @end

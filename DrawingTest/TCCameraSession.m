@@ -142,7 +142,7 @@
                  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
                      UIImage *rawImage = [[UIImage alloc] initWithData:imageRawData];
                      dispatch_async(dispatch_get_main_queue(), ^{
-                         [self.glk_maskView onImageCapturedSuccess:rawImage ];
+//                         [self.glk_maskView onImageCapturedSuccess:rawImage ];
                      });
                  });
              }
@@ -158,7 +158,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         NSLog(@"audio channel found");
 //       [glk_maskView cameraSampleBuffer:sampleBuffer];
     }else {
-             [glk_maskView cameraSampleBuffer:sampleBuffer];
+//             [glk_maskView setCameraSampleBuffer:sampleBuffer];
         }
     
 }

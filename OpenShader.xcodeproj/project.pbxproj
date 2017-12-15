@@ -23,6 +23,8 @@
 		BEE52CAF1FAA0D48001E1A7E /* mk.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CAE1FAA0D48001E1A7E /* mk.png */; };
 		BEE52CB11FAA1AF3001E1A7E /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CB01FAA1AF3001E1A7E /* cat.png */; };
 		BEE52CB31FAA1C60001E1A7E /* bw.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEE52CB21FAA1C60001E1A7E /* bw.jpg */; };
+		EB03C64D1FE4013800BD7E40 /* FDShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB03C64C1FE4013800BD7E40 /* FDShaderProgram.mm */; };
+		EB03C64F1FE4016F00BD7E40 /* FaceMaskFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB03C64E1FE4016F00BD7E40 /* FaceMaskFShader.glsl */; };
 		EB0456681FDB1C4E00247AF4 /* CameraGLView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB0456671FDB1C4E00247AF4 /* CameraGLView.m */; };
 		EB04566C1FDB1F0F00247AF4 /* FDCameraRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB04566B1FDB1F0F00247AF4 /* FDCameraRenderer.mm */; };
 		EB0DD1101FDB22C80047FFA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0DD10F1FDB22A20047FFA2 /* AVFoundation.framework */; };
@@ -33,20 +35,23 @@
 		EB0F84F91FBBA10800B8DCC7 /* spot.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84F81FBBA10800B8DCC7 /* spot.jpg */; };
 		EB0F84FB1FBBA41D00B8DCC7 /* spot2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB0F84FA1FBBA41D00B8DCC7 /* spot2.jpg */; };
 		EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30944B1FE05A350011B937 /* TextureLoader.m */; };
-		EB3094501FE065D70011B937 /* ShaderBaseProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */; };
+		EB3094501FE065D70011B937 /* ShaderBaseProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB30944F1FE065D70011B937 /* ShaderBaseProgram.mm */; };
 		EB3094551FE065F10011B937 /* RGBQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */; };
 		EB3094561FE065F10011B937 /* BlurVertexShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094521FE065F10011B937 /* BlurVertexShader.glsl */; };
 		EB3094571FE065F10011B937 /* BlurFrgmentShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */; };
 		EB3094581FE065F10011B937 /* QuadVProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094541FE065F10011B937 /* QuadVProgram.glsl */; };
-		EB3094611FE067E10011B937 /* BlurShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = EB3094601FE067E10011B937 /* BlurShaderProgram.m */; };
+		EB3094611FE067E10011B937 /* BlurShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB3094601FE067E10011B937 /* BlurShaderProgram.mm */; };
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
 		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
 		EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */; };
 		EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE41FE3A5D200951581 /* TCCameraSession.m */; };
-		EB754DEB1FE3A5E500951581 /* GLKDetectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.m */; };
+		EB754DEB1FE3A5E500951581 /* GLKDetectionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.mm */; };
 		EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */; };
 		EB754DF11FE3CA3800951581 /* FaceMaskVShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */; };
-		EB754DF31FE3CA4D00951581 /* FaceMaskFShader.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */; };
+		EBFDCBFA1FE42DB300F18980 /* GSCameraRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCBF91FE42DB300F18980 /* GSCameraRenderer.mm */; };
+		EBFDCBFE1FE4316200F18980 /* GSStickerRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCBFD1FE4316200F18980 /* GSStickerRenderer.mm */; };
+		EBFDCC011FE4379E00F18980 /* GSAnimationRenderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCC001FE4379E00F18980 /* GSAnimationRenderer.mm */; };
+		EBFDCC041FE4448F00F18980 /* GSMediaRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = EBFDCC031FE4448F00F18980 /* GSMediaRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +97,9 @@
 		BEE52CAE1FAA0D48001E1A7E /* mk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mk.png; sourceTree = "<group>"; };
 		BEE52CB01FAA1AF3001E1A7E /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		BEE52CB21FAA1C60001E1A7E /* bw.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bw.jpg; sourceTree = "<group>"; };
+		EB03C64B1FE4013800BD7E40 /* FDShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FDShaderProgram.h; path = OpengGL/CameraFaceMask/FDShaderProgram.h; sourceTree = "<group>"; };
+		EB03C64C1FE4013800BD7E40 /* FDShaderProgram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = FDShaderProgram.mm; path = OpengGL/CameraFaceMask/FDShaderProgram.mm; sourceTree = "<group>"; };
+		EB03C64E1FE4016F00BD7E40 /* FaceMaskFShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = FaceMaskFShader.glsl; path = OpengGL/CameraFaceMask/FaceMaskFShader.glsl; sourceTree = "<group>"; };
 		EB0456661FDB1C4E00247AF4 /* CameraGLView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraGLView.h; sourceTree = "<group>"; };
 		EB0456671FDB1C4E00247AF4 /* CameraGLView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraGLView.m; sourceTree = "<group>"; };
 		EB0456691FDB1DC100247AF4 /* FDShaders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FDShaders.h; sourceTree = "<group>"; };
@@ -109,25 +117,33 @@
 		EB30944A1FE05A340011B937 /* TextureLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureLoader.h; sourceTree = "<group>"; };
 		EB30944B1FE05A350011B937 /* TextureLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureLoader.m; sourceTree = "<group>"; };
 		EB30944E1FE065D60011B937 /* ShaderBaseProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ShaderBaseProgram.h; path = OpengGL/ShaderBaseProgram.h; sourceTree = "<group>"; };
-		EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ShaderBaseProgram.m; path = OpengGL/ShaderBaseProgram.m; sourceTree = "<group>"; };
+		EB30944F1FE065D70011B937 /* ShaderBaseProgram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = ShaderBaseProgram.mm; path = OpengGL/ShaderBaseProgram.mm; sourceTree = "<group>"; };
 		EB3094511FE065F10011B937 /* RGBQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = RGBQuadFProgram.glsl; path = OpengGL/RGBQuadFProgram.glsl; sourceTree = "<group>"; };
 		EB3094521FE065F10011B937 /* BlurVertexShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BlurVertexShader.glsl; path = OpengGL/BlurVertexShader.glsl; sourceTree = "<group>"; };
 		EB3094531FE065F10011B937 /* BlurFrgmentShader.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = BlurFrgmentShader.glsl; path = OpengGL/BlurFrgmentShader.glsl; sourceTree = "<group>"; };
 		EB3094541FE065F10011B937 /* QuadVProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = QuadVProgram.glsl; path = OpengGL/QuadVProgram.glsl; sourceTree = "<group>"; };
 		EB30945C1FE066EE0011B937 /* GLProgramInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLProgramInterface.h; path = OpengGL/GLProgramInterface.h; sourceTree = "<group>"; };
 		EB30945F1FE067E10011B937 /* BlurShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlurShaderProgram.h; path = OpengGL/BlurShaderProgram.h; sourceTree = "<group>"; };
-		EB3094601FE067E10011B937 /* BlurShaderProgram.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlurShaderProgram.m; path = OpengGL/BlurShaderProgram.m; sourceTree = "<group>"; };
+		EB3094601FE067E10011B937 /* BlurShaderProgram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = BlurShaderProgram.mm; path = OpengGL/BlurShaderProgram.mm; sourceTree = "<group>"; };
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YUVQuadFProgram.glsl; path = OpengGL/YUVQuadFProgram.glsl; sourceTree = "<group>"; };
 		EB754DE31FE3A5D200951581 /* TCCameraSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCameraSession.h; sourceTree = "<group>"; };
 		EB754DE41FE3A5D200951581 /* TCCameraSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCameraSession.m; sourceTree = "<group>"; };
-		EB754DE91FE3A5E400951581 /* GLKDetectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLKDetectionView.m; sourceTree = "<group>"; };
+		EB754DE91FE3A5E400951581 /* GLKDetectionView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GLKDetectionView.mm; sourceTree = "<group>"; };
 		EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLKDetectionView.h; sourceTree = "<group>"; };
 		EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSCameraViewController.m; sourceTree = "<group>"; };
 		EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSCameraViewController.h; sourceTree = "<group>"; };
 		EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; name = FaceMaskVShader.glsl; path = OpengGL/CameraFaceMask/FaceMaskVShader.glsl; sourceTree = "<group>"; };
-		EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = FaceMaskFShader.glsl; sourceTree = "<group>"; };
+		EBFDCBF81FE42DB300F18980 /* GSCameraRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSCameraRenderer.h; path = OpengGL/CameraFaceMask/GSCameraRenderer.h; sourceTree = "<group>"; };
+		EBFDCBF91FE42DB300F18980 /* GSCameraRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GSCameraRenderer.mm; path = OpengGL/CameraFaceMask/GSCameraRenderer.mm; sourceTree = "<group>"; };
+		EBFDCBFC1FE4316200F18980 /* GSStickerRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSStickerRenderer.h; path = OpengGL/CameraFaceMask/GSStickerRenderer.h; sourceTree = "<group>"; };
+		EBFDCBFD1FE4316200F18980 /* GSStickerRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GSStickerRenderer.mm; path = OpengGL/CameraFaceMask/GSStickerRenderer.mm; sourceTree = "<group>"; };
+		EBFDCBFF1FE4379E00F18980 /* GSAnimationRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSAnimationRenderer.h; path = OpengGL/CameraFaceMask/GSAnimationRenderer.h; sourceTree = "<group>"; };
+		EBFDCC001FE4379E00F18980 /* GSAnimationRenderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = GSAnimationRenderer.mm; path = OpengGL/CameraFaceMask/GSAnimationRenderer.mm; sourceTree = "<group>"; };
+		EBFDCC021FE4448F00F18980 /* GSMediaRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSMediaRenderer.h; path = OpengGL/CameraFaceMask/GSMediaRenderer.h; sourceTree = "<group>"; };
+		EBFDCC031FE4448F00F18980 /* GSMediaRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = GSMediaRenderer.m; path = OpengGL/CameraFaceMask/GSMediaRenderer.m; sourceTree = "<group>"; };
+		EBFDCC051FE444A300F18980 /* GSMediaInterFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GSMediaInterFace.h; path = OpengGL/CameraFaceMask/GSMediaInterFace.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,12 +267,13 @@
 				EB754DE31FE3A5D200951581 /* TCCameraSession.h */,
 				EB754DE41FE3A5D200951581 /* TCCameraSession.m */,
 				EB754DEA1FE3A5E500951581 /* GLKDetectionView.h */,
-				EB754DE91FE3A5E400951581 /* GLKDetectionView.m */,
+				EB754DE91FE3A5E400951581 /* GLKDetectionView.mm */,
 				EB754DED1FE3AAEE00951581 /* MSCameraViewController.h */,
 				EB754DEC1FE3AAEE00951581 /* MSCameraViewController.m */,
 				EB3094591FE065F90011B937 /* ShaderPrograms */,
 				EB30945A1FE0661F0011B937 /* OpenGLUI */,
 				EB30945B1FE0662E0011B937 /* OpenGLDT */,
+				EBFDCBFB1FE42DC300F18980 /* OpenglRenderer */,
 			);
 			name = OpengGL;
 			sourceTree = "<group>";
@@ -287,9 +304,11 @@
 			children = (
 				EB30945C1FE066EE0011B937 /* GLProgramInterface.h */,
 				EB30944E1FE065D60011B937 /* ShaderBaseProgram.h */,
-				EB30944F1FE065D70011B937 /* ShaderBaseProgram.m */,
+				EB30944F1FE065D70011B937 /* ShaderBaseProgram.mm */,
 				EB30945F1FE067E10011B937 /* BlurShaderProgram.h */,
-				EB3094601FE067E10011B937 /* BlurShaderProgram.m */,
+				EB3094601FE067E10011B937 /* BlurShaderProgram.mm */,
+				EB03C64B1FE4013800BD7E40 /* FDShaderProgram.h */,
+				EB03C64C1FE4013800BD7E40 /* FDShaderProgram.mm */,
 			);
 			name = OpenGLDT;
 			sourceTree = "<group>";
@@ -317,7 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				EB754DF01FE3CA3800951581 /* FaceMaskVShader.glsl */,
-				EB754DF21FE3CA4D00951581 /* FaceMaskFShader.glsl */,
+				EB03C64E1FE4016F00BD7E40 /* FaceMaskFShader.glsl */,
 			);
 			name = FaceMaskDrawing;
 			sourceTree = "<group>";
@@ -344,6 +363,22 @@
 				BE12AF8F1F9EF52000FB2186 /* main.m */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		EBFDCBFB1FE42DC300F18980 /* OpenglRenderer */ = {
+			isa = PBXGroup;
+			children = (
+				EBFDCC051FE444A300F18980 /* GSMediaInterFace.h */,
+				EBFDCC021FE4448F00F18980 /* GSMediaRenderer.h */,
+				EBFDCC031FE4448F00F18980 /* GSMediaRenderer.m */,
+				EBFDCBF81FE42DB300F18980 /* GSCameraRenderer.h */,
+				EBFDCBF91FE42DB300F18980 /* GSCameraRenderer.mm */,
+				EBFDCBFC1FE4316200F18980 /* GSStickerRenderer.h */,
+				EBFDCBFD1FE4316200F18980 /* GSStickerRenderer.mm */,
+				EBFDCBFF1FE4379E00F18980 /* GSAnimationRenderer.h */,
+				EBFDCC001FE4379E00F18980 /* GSAnimationRenderer.mm */,
+			);
+			name = OpenglRenderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,7 +505,7 @@
 				EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */,
 				EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
-				EB754DF31FE3CA4D00951581 /* FaceMaskFShader.glsl in Resources */,
+				EB03C64F1FE4016F00BD7E40 /* FaceMaskFShader.glsl in Resources */,
 				EB5ED4E51FD9C9220044CC42 /* img.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
@@ -501,16 +536,21 @@
 				EB04566C1FDB1F0F00247AF4 /* FDCameraRenderer.mm in Sources */,
 				EB754DEE1FE3AAEE00951581 /* MSCameraViewController.m in Sources */,
 				EB0DD1181FDB24750047FFA2 /* FDCameraViewController.mm in Sources */,
+				EBFDCC011FE4379E00F18980 /* GSAnimationRenderer.mm in Sources */,
+				EB03C64D1FE4013800BD7E40 /* FDShaderProgram.mm in Sources */,
 				EB0456681FDB1C4E00247AF4 /* CameraGLView.m in Sources */,
 				BE1C3C351FA057C400D45815 /* GLViewController.m in Sources */,
 				EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */,
+				EBFDCBFE1FE4316200F18980 /* GSStickerRenderer.mm in Sources */,
+				EBFDCC041FE4448F00F18980 /* GSMediaRenderer.m in Sources */,
+				EBFDCBFA1FE42DB300F18980 /* GSCameraRenderer.mm in Sources */,
 				EB30944C1FE05A350011B937 /* TextureLoader.m in Sources */,
 				BE12AF931F9EF52000FB2186 /* AppDelegate.m in Sources */,
 				EB0DD1171FDB24750047FFA2 /* FDCameraSessionHandler.mm in Sources */,
 				BE12AF901F9EF52000FB2186 /* main.m in Sources */,
-				EB754DEB1FE3A5E500951581 /* GLKDetectionView.m in Sources */,
-				EB3094611FE067E10011B937 /* BlurShaderProgram.m in Sources */,
-				EB3094501FE065D70011B937 /* ShaderBaseProgram.m in Sources */,
+				EB754DEB1FE3A5E500951581 /* GLKDetectionView.mm in Sources */,
+				EB3094611FE067E10011B937 /* BlurShaderProgram.mm in Sources */,
+				EB3094501FE065D70011B937 /* ShaderBaseProgram.mm in Sources */,
 				BE1C3C2D1FA0571C00D45815 /* OpenGLView.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
