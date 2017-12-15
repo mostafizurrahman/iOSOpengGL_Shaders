@@ -146,6 +146,10 @@ using namespace std;
 }
 
 - (void) setCameraResolution:(CGSize)resolution {
+    
+    
+    
+    
 	cameraResolution = resolution;
 	numOfPixels = cameraResolution.width * cameraResolution.height;
 	
