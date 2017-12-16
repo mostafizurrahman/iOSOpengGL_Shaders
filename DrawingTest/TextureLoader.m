@@ -65,7 +65,6 @@
     } else {
         _generated = NO;
     }
-    
     return _generated;
 }
 

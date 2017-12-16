@@ -23,8 +23,6 @@
 -(instancetype)initWithVShader:(NSString *)vshaderName
             withFragmentShader:(NSString *)fshaderName
                    textureType:(BaseTextureType)t_type;
--(void)useUniform:(NSString *)uniformName;
--(void)useAttribute:(NSString *)attributeName;
 -(GLuint)getProgramHandler;
 -(NSString*)checkGLError;
 

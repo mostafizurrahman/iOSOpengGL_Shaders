@@ -66,7 +66,7 @@ const VertexData_t DefaultVertices[] = {
 -(instancetype)initWithVShader:(NSString *)vshaderName
             withFragmentShader:(NSString *)fshaderName
                    textureType:(BaseTextureType)t_type;
--(void)useAttribute:(NSString *)attributeName;
+-(void)useAttribute;
 -(void)useUniform:(NSString*)uniformName;
 -(GLuint)getProgramHandler;
 -(NSString *)checkGLError;
