@@ -19,4 +19,5 @@
 -(instancetype)initWithContext:(EAGLContext *)glContext opengProgram:(FDShaderProgram *)faceDetectionProgram;
 
 -(void)renderCameraBuffer:(unsigned char*) cameraData;
+-(void)generateTexture:(const CGSize)textureSize;
 @end

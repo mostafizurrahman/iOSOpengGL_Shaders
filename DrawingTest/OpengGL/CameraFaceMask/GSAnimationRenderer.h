@@ -23,4 +23,7 @@
 
 -(void)changeAnimation:(FDAnimationData *)animationData;
 
+-(void)renderFrameImage;
+-(void)renderBackground;
+
 @end

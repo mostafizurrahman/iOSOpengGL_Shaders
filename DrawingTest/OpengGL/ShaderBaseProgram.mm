@@ -14,8 +14,6 @@
     GLuint glu_fragShaderID;
     NSDictionary *programErrorInfo;
     BaseTextureType textureType;
-    
-    
 }
 
 @property (readwrite) GLuint u_UVBaseTexture;
@@ -67,13 +65,34 @@
 -(void)compileProgram:(NSString *)vshader fragShader:(NSString *)fshader{
     glu_vertShaderID = [self compileShader:vshader withType:GL_VERTEX_SHADER];
     if(glu_fragShaderID == GL_ERR){
+        NSLog(@"error in fragmentShader");
         return;
     }
     glu_fragShaderID = [self compileShader:fshader withType:GL_FRAGMENT_SHADER];
     if(glu_fragShaderID == GL_ERR){
+        NSLog(@"error in vertexShader");
         return;
     }
+    
+    [self generateProgram];
     [self setupCommotAttribs];
+}
+
+-(void)generateProgram{
+    glu_shaderProgram = glCreateProgram();
+    glAttachShader(glu_shaderProgram, glu_vertShaderID);
+    glAttachShader(glu_shaderProgram, glu_fragShaderID);
+    glLinkProgram(glu_shaderProgram);
+    
+    // 3
+    GLint linkSuccess;
+    glGetProgramiv(glu_shaderProgram, GL_LINK_STATUS, &linkSuccess);
+    if (linkSuccess == GL_FALSE) {
+        GLchar messages[256];
+        glGetProgramInfoLog(glu_shaderProgram, sizeof(messages), 0, &messages[0]);
+        NSString *messageString = [NSString stringWithUTF8String:messages];
+        NSLog(@"%@", messageString);
+    }
 }
 
 -(void)setupCommotAttribs {
@@ -96,7 +115,7 @@
     [attributeDictionary setObject:[NSNumber numberWithInteger:self.a_TextureCoordinate] forKey:@"a_TextureCoordinate"];
 }
 
-- (void)useAttribute:(NSString *)attributeName {
+- (void)useAttribute {
     
 }
 
