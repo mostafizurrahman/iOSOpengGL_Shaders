@@ -63,7 +63,6 @@ typedef struct {
     
     
     
-    
     /*
     
     [self getImage];
@@ -394,5 +393,6 @@ const GLubyte Indices2[] = {
     glEnableVertexAttribArray(_colorSlot);
     
 }
+
 
 @end

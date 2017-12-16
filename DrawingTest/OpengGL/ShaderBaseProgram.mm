@@ -14,13 +14,15 @@
     GLuint glu_fragShaderID;
     NSDictionary *programErrorInfo;
     BaseTextureType textureType;
+    
+    
 }
 
 @property (readwrite) GLuint u_UVBaseTexture;
 @property (readwrite) GLuint u_YBaseTexture;
 
 
-@property (readwrite) GLuint u_BaseTexture;
+@property (readwrite) GLuint u_BaseTextureRGB;
 @property (readwrite) GLuint a_TexturePosition;
 @property (readwrite) GLuint a_TextureCoordinate;
 
@@ -28,12 +30,18 @@
 
 
 @implementation ShaderBaseProgram
-@synthesize u_BaseTexture;
+@synthesize u_BaseTextureRGB;
 @synthesize a_TexturePosition;
 @synthesize a_TextureCoordinate;
 
 @synthesize u_YBaseTexture;
 @synthesize u_UVBaseTexture;
+
+@synthesize uniformDictionary;
+@synthesize attributeDictionary;
+
+
+
 
 - (NSString *)checkGLError {
     return [programErrorInfo objectForKey:@"ErorrMsg"];
@@ -47,7 +55,11 @@
              withFragmentShader:(NSString *)fshaderName
                     textureType:(BaseTextureType)t_type{
     self = [super init];
+    uniformDictionary = [[NSMutableDictionary alloc] init];
+    attributeDictionary = [[NSMutableDictionary alloc] init];
+    
     textureType = t_type;
+    
     [self compileProgram:vshaderName fragShader:fshaderName];
     return self;
 }
@@ -67,14 +79,21 @@
 -(void)setupCommotAttribs {
     //get either Y texture and UV Textures OR get RGB single Texture.
     if(textureType == BaseTextureTypeYUV){
-        self.u_YBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_YTextureBase");
-        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_UVTextureBase");
+        self.u_YBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseY");
+        [uniformDictionary setObject:[NSNumber numberWithInteger:self.u_YBaseTexture] forKey:@"u_TextureBaseY"];
+        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseUV");
+        [uniformDictionary setObject:[NSNumber numberWithInteger:self.u_UVBaseTexture] forKey:@"u_TextureBaseUV"];
+        
+        
     } else if(textureType == BaseTextureTypeRGB){
-        self.u_UVBaseTexture = glGetUniformLocation(glu_shaderProgram, "u_RGBTextureBase");
+        self.u_BaseTextureRGB = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseRGB");
+        [uniformDictionary setObject:[NSNumber numberWithInteger:self.u_BaseTextureRGB] forKey:@"u_TextureBaseRGB"];
     }
     //Position vec4 and Texture Coordinate vec2, these two parameters are same for both YUV and RGBA texture
     self.a_TexturePosition = glGetAttribLocation(glu_shaderProgram, "a_TexturePosition");
+    [attributeDictionary setObject:[NSNumber numberWithInteger:self.a_TexturePosition] forKey:@"a_TexturePosition"];
     self.a_TextureCoordinate = glGetAttribLocation(glu_shaderProgram, "a_TextureCoordinate");
+    [attributeDictionary setObject:[NSNumber numberWithInteger:self.a_TextureCoordinate] forKey:@"a_TextureCoordinate"];
 }
 
 - (void)useAttribute:(NSString *)attributeName {
