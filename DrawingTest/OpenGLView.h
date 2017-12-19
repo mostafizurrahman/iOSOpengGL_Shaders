@@ -6,10 +6,11 @@
 //  Copyright © 2017 Mostafizur Rahman. All rights reserved.
 //
 
+#import <GLKit/GLKit.h>
 #import <UIKit/UIKit.h>
 #import "TextureLoader.h"
 
-@interface OpenGLView : UIView{
+@interface OpenGLView : GLKView{
     CAEAGLLayer* _eaglLayer;
     EAGLContext* _context;
     CIContext *cicontext;

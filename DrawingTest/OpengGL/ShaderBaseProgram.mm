@@ -105,13 +105,13 @@
         
         
     } else if(textureType == BaseTextureTypeRGB){
-        self.u_BaseTextureRGB = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseRGB");
+        u_BaseTextureRGB = glGetUniformLocation(glu_shaderProgram, "u_TextureBaseRGB");
         [uniformDictionary setObject:[NSNumber numberWithInteger:self.u_BaseTextureRGB] forKey:@"u_TextureBaseRGB"];
     }
     //Position vec4 and Texture Coordinate vec2, these two parameters are same for both YUV and RGBA texture
-    self.a_TexturePosition = glGetAttribLocation(glu_shaderProgram, "a_TexturePosition");
+    a_TexturePosition = glGetAttribLocation(glu_shaderProgram, "a_TexturePosition");
     [attributeDictionary setObject:[NSNumber numberWithInteger:self.a_TexturePosition] forKey:@"a_TexturePosition"];
-    self.a_TextureCoordinate = glGetAttribLocation(glu_shaderProgram, "a_TextureCoordinate");
+    a_TextureCoordinate = glGetAttribLocation(glu_shaderProgram, "a_TextureCoordinate");
     [attributeDictionary setObject:[NSNumber numberWithInteger:self.a_TextureCoordinate] forKey:@"a_TextureCoordinate"];
 }
 
@@ -179,6 +179,7 @@
         GLchar messages[256];
         glGetShaderInfoLog(shaderHandler, sizeof(messages), 0, &messages[0]);
         NSString *messageString = [NSString stringWithUTF8String:messages];
+        NSLog(@"error in %@ \n Message : %@ ",shaderName, messageString);
         programErrorInfo = [NSDictionary dictionaryWithObjectsAndKeys:messageString,@"ErorrMsg", nil];
         return -1;
     }

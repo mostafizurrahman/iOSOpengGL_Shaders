@@ -24,7 +24,7 @@
 -(void)initSessionWithView:(UIView *)parentView;
 
 
-@property (readwrite) GLKDetectionView *glk_maskView;
+@property (readwrite, strong) GLKDetectionView *glk_maskView;
 
 -(void)capturePhoto;
 -(void)stopSession;

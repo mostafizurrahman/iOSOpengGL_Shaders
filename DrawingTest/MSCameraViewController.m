@@ -48,14 +48,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(!glcontextSetupCompleted){
+//    if(!glcontextSetupCompleted){
         glcontextSetupCompleted = [self.glk_maskView setupOpenGLContext];
-        captureSession = [[TCCameraSession alloc] init];
-        [captureSession initSessionWithView:self.view];
-        captureSession.glk_maskView = self.glk_maskView;
-    }
-    [captureSession startSession];
-    [self.glk_maskView setVideoDelegate:self];
+//        captureSession = [[TCCameraSession alloc] init];
+//        [captureSession initSessionWithView:self.view];
+//        captureSession.glk_maskView = self.glk_maskView;
+//        glcontextSetupCompleted = YES;
+//    }
+//    [captureSession startSession];
+//    [self.glk_maskView setVideoDelegate:self];
 }
 -(void)viewDidDisappear:(BOOL)animated{
     [super viewDidDisappear:animated];

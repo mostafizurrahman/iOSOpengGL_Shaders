@@ -27,7 +27,7 @@
     AVCaptureVideoDataOutput *videoDataOutput;
     AVCaptureAudioDataOutput *audioDataOutput;
     
-    
+    BOOL shouldSetupResolution;
     BOOL shouldStopRendering;
 }
 
@@ -39,11 +39,12 @@
 
 -(void)initSessionWithView:(UIView *)parentView {
   
+    shouldSetupResolution = YES;
     captureSession = [[AVCaptureSession alloc] init];
     [captureSession setSessionPreset:AVCaptureSessionPresetHigh];
     [self setCameraInSession:captureSession];
     //[self setAudioDataOutputFromSession:captureSession];
-    [self setPreviewLayerInParentView:parentView fromSession:captureSession];
+//    [self setPreviewLayerInParentView:parentView fromSession:captureSession];
     [self setVideoDataOutptFromSession:captureSession];
     [self setStillImageOutputInSession:captureSession];
     
@@ -99,7 +100,6 @@
     [videoDataOutput setSampleBufferDelegate:self queue:videoBufferQueue];
 
     
-    [captureSession startRunning];
     if([session canAddOutput:videoDataOutput]) {
         [session addOutput:videoDataOutput];
     }
@@ -156,10 +156,16 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
       fromConnection:(AVCaptureConnection *)connection{
     if([captureOutput isKindOfClass:[AVCaptureAudioDataOutput class]]){
         NSLog(@"audio channel found");
-//       [glk_maskView cameraSampleBuffer:sampleBuffer];
+        //       [glk_maskView cameraSampleBuffer:sampleBuffer];
     }else {
-//             [glk_maskView setCameraSampleBuffer:sampleBuffer];
+        if(shouldSetupResolution){
+            CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+            CGSize resolution = CVImageBufferGetDisplaySize(imageBuffer);
+            [glk_maskView generateDefaultVBO:resolution];
+            shouldSetupResolution  = NO;
         }
+        [glk_maskView setCameraSampleBuffer:sampleBuffer];
+    }
     
 }
 

@@ -51,6 +51,9 @@
     GLuint vbo_vertexBufferID;
     GLuint vbo_indexBufferID;
     
+    
+    GLuint texture;
+    
 }
 @end
 @implementation GLKDetectionView
@@ -85,7 +88,7 @@
     openglLayer.drawableProperties =
     [NSDictionary dictionaryWithObjectsAndKeys: kEAGLColorFormatRGBA8,
                                      kEAGLDrawablePropertyColorFormat, nil];
-    [self setDefaultContext];
+    
     [self initializeDefaultDrawing];
     self.enableSetNeedsDisplay = NO;
     //assuming camera feed will be rendered full screen in GLKView
@@ -95,15 +98,12 @@
     screenImageExtent = CGRectMake(0, 0, size.width * MAINSCRN_SCALE,
                                     size.height * MAINSCRN_SCALE);
     
+    
+    
     return YES;
 }
 
 -(void)initializeDefaultDrawing{
-    _shaderProgram = [[FDShaderProgram alloc] initWithVShader:@""
-                                           withFragmentShader:@""
-                                                  textureType:BaseTextureTypeRGB];
-    cameraRenderer = [[GSCameraRenderer alloc] initWithContext:openglContext opengProgram:_shaderProgram];
-    
     glGenBuffers(1, &vbo_vertexBufferID);
     glBindBuffer(GL_ARRAY_BUFFER, vbo_vertexBufferID);
     glBufferData(GL_ARRAY_BUFFER, sizeof(DefaultVertices), DefaultVertices, GL_STATIC_DRAW);
@@ -111,10 +111,18 @@
     glGenBuffers(1, &vbo_indexBufferID);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo_indexBufferID);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(DefaultIndices), DefaultIndices, GL_STATIC_DRAW);
+    
+    
+    _shaderProgram = [[FDShaderProgram alloc] initWithVShader:@"FaceMaskVShader"
+                                           withFragmentShader:@"FaceMaskFShader"
+                                                  textureType:BaseTextureTypeRGB];
+    cameraRenderer = [[GSCameraRenderer alloc] initWithContext:openglContext opengProgram:_shaderProgram];
+    
+    [self generateDefaultVBO:CGSizeMake(1080, 1822)];
+    
 }
 
 -(void)setDefaultContext{
-    [self bindDrawable];
     glClearColor(0.0, 0.0, 0.0, 0.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glEnable(GL_BLEND);
@@ -122,16 +130,22 @@
 }
 
 -(void)generateDefaultVBO:(const CGSize)cameraResolution{
+    
+   
+    [self bindDrawable];
+     glGetIntegerv(GL_FRAMEBUFFER_BINDING, &vbo_defaultFrameBuffer);
     videoDataLength = cameraResolution.width * cameraResolution.height * 4;
     videoPiexelBuffer = (unsigned char *)malloc(videoDataLength * sizeof(unsigned char *));
-    [cameraRenderer generateTexture:cameraResolution];
+//    [cameraRenderer generateTexture:cameraResolution];
     sourceImageExtent = CGRectMake(0, 0, cameraResolution.width,
                                    cameraResolution.height);
+    
+    
+    
     glGenFramebuffers(1, &vbo_drawingFrameBuffer);
     glGenTextures(1, &vbo_dfOffscreenTexture);
     glGenRenderbuffers(1, &vbo_defaultDepthBuffer);
     
-    [self setDefaultContext];
     glBindTexture(GL_TEXTURE_2D, vbo_dfOffscreenTexture);
     [cameraRenderer setTextParameters];
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, cameraResolution.width,
@@ -139,41 +153,54 @@
     
     glBindRenderbuffer(GL_RENDERBUFFER, vbo_defaultDepthBuffer);
 
-    [openglContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:openglLayer];
     glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT16,
                           cameraResolution.width, cameraResolution.height);
+    [openglContext renderbufferStorage:GL_RENDERBUFFER fromDrawable:openglLayer];
     
     glBindFramebuffer(GL_FRAMEBUFFER, vbo_drawingFrameBuffer);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D,
                            vbo_dfOffscreenTexture, 0);
     glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT,
                               GL_RENDERBUFFER, vbo_defaultDepthBuffer);
+    
+    
+    
+    
+    UIImage *image = [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle ] pathForResource:@"image" ofType:@"png"]];
+    texture = [cameraRenderer setupTexture:image];
+    [self renderCamera];
+    
 }
 
--(void)renderCamera{
-    [self bindDrawable];
-    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &vbo_defaultFrameBuffer);
+-(void)renderCamera {
+//    [self bindDrawable];
+   
+    
     
     // 2. RENDER TO OFFSCREEN RENDER TARGET
     glBindFramebuffer(GL_FRAMEBUFFER, vbo_drawingFrameBuffer);
+    GLuint programId = [_shaderProgram getProgramHandler];
+    
+    glUseProgram(programId);
     glViewport(0, 0, sourceImageExtent.size.width,
                sourceImageExtent.size.height);
-    glClearColor(0.25f, 0.25f, 0.25f, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    [self setDefaultContext];
     /// DRAW THE SCENE ///
-    
-    
-    glUseProgram([_shaderProgram getProgramHandler]);
     
     glBindBuffer(GL_ARRAY_BUFFER, vbo_vertexBufferID);
     glEnableVertexAttribArray(_shaderProgram.a_TexturePosition);
     glVertexAttribPointer(_shaderProgram.a_TexturePosition, 3, GL_FLOAT, GL_FALSE,
                           sizeof(VertexData_t), (GLvoid*) offsetof(VertexData_t, Position));
-    glEnableVertexAttribArray(_shaderProgram.a_TexturePosition);
+    glEnableVertexAttribArray(_shaderProgram.a_TextureCoordinate);
     glVertexAttribPointer(_shaderProgram.a_TextureCoordinate, 2, GL_FLOAT, GL_FALSE,
                           sizeof(VertexData_t), (GLvoid*) offsetof(VertexData_t, TexCoord));
     
-    [cameraRenderer renderCameraBuffer:videoPiexelBuffer];
+    glActiveTexture(GL_TEXTURE0+1);
+    
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glUniform1i(_shaderProgram.u_BaseTextureRGB, 1);
+//    glProgramUniform1iEXT(programId, _shaderProgram.u_BaseTextureRGB, texture);
+//    [cameraRenderer renderCameraBuffer:videoPiexelBuffer];
     
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo_indexBufferID);
     glDrawElements(GL_TRIANGLES, sizeof(DefaultIndices)/sizeof(DefaultIndices[0]),
@@ -188,9 +215,6 @@
                screenImageExtent.size.height);
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    
-    
     
 }
 
@@ -209,9 +233,12 @@
     CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
     CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault;
     CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
-    CGImageRef imageRef = CGImageCreate(imageSize.width, imageSize.height, bitsPerComponent, bitsPerPixel, bytesPerRow, colorSpaceRef, bitmapInfo, provider, NULL, NO, renderingIntent);
+    CGImageRef imageRef = CGImageCreate(imageSize.width, imageSize.height, bitsPerComponent,
+                                        bitsPerPixel, bytesPerRow, colorSpaceRef,
+                                        bitmapInfo, provider, NULL, NO, renderingIntent);
     UIGraphicsBeginImageContext(imageSize);
-    CGContextDrawImage(UIGraphicsGetCurrentContext(), CGRectMake(0.0, 0.0, imageSize.width, imageSize.height), imageRef);
+    CGContextDrawImage(UIGraphicsGetCurrentContext(),
+                       CGRectMake(0.0, 0.0, imageSize.width, imageSize.height), imageRef);
     UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     CGImageRelease(imageRef);

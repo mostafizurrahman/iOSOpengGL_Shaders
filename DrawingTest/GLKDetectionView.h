@@ -27,6 +27,7 @@
 -(BOOL)setupOpenGLContext;
 -(void)setCameraSampleBuffer:(CMSampleBufferRef)sampleBuffer;
 -(void)setVideoDelegate:(id)delegate;
+-(void)generateDefaultVBO:(const CGSize)cameraResolution;
 
 @property (readwrite) dispatch_queue_t videoOutputQueue;
 @property (readwrite) BOOL shouldApplyThreshold;

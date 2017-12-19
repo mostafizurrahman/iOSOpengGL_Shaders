@@ -47,6 +47,7 @@ typedef struct {
     glProgramUniform1iEXT(programHandle, _floorTexture, 1);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
     
+    [self getImage];
     glDrawElements(GL_TRIANGLES, sizeof(Indices)/sizeof(Indices[0]),
                    GL_UNSIGNED_BYTE, 0);
     
@@ -65,7 +66,6 @@ typedef struct {
     
     /*
     
-    [self getImage];
     
     
     
@@ -194,9 +194,9 @@ const GLubyte Indices2[] = {
         [self setupContext];
         [self setupRenderBuffer];
         [self setupFrameBuffer];
-        [self compileShadersOffScreenToOnScreen];
         [self compileShaders];
         [self setupVBOs];
+        [self render];
     }
     return self;
 }
@@ -333,9 +333,9 @@ const GLubyte Indices2[] = {
 - (void)compileShaders {
     
     // 1
-    GLuint vertexShader = [self compileShader:@"SimpleVertex"
+    GLuint vertexShader = [self compileShader:@"QuadVProgram"
                                      withType:GL_VERTEX_SHADER];
-    GLuint fragmentShader = [self compileShader:@"SimpleFragment"
+    GLuint fragmentShader = [self compileShader:@"RGBQuadFProgram"
                                        withType:GL_FRAGMENT_SHADER];
     
     // 2
@@ -358,36 +358,13 @@ const GLubyte Indices2[] = {
     // 4
     glUseProgram(programHandle);
     
-    _textureUniform = glGetUniformLocation(programHandle, "Texture");
-    _blur_h = glGetUniformLocation(programHandle, "texelHeightOffset");
-    _blur_v = glGetUniformLocation(programHandle, "texelWidthOffset");
-    _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
+    _textureUniform = glGetUniformLocation(programHandle, "u_TextureBaseRGB");
     
     
-    blur_radius = glGetUniformLocation(programHandle, "blur_radius");
-    direction = glGetUniformLocation(programHandle, "direction");
-    resolution = glGetUniformLocation(programHandle, "resolution");
+
     
-    
-    // 5
-    _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
-//    glActiveTexture(GL_TEXTURE0);
-//    glBindTexture(GL_TEXTURE_2D, _brushTexture);
-//    glUniform1i(_textureUniform, 0);
-    
-//    _textureFloorUniform = glGetUniformLocation(programHandle, "TextureFloor");
-//    glActiveTexture(GL_TEXTURE0 + 1);
-//    glBindTexture(GL_TEXTURE_2D, _floorTexture);
-//    glUniform1i(_textureFloorUniform, 1);
-    
-//    _textureTopUniform = glGetUniformLocation(programHandle, "TextureTop");
-//    glActiveTexture(GL_TEXTURE0 + 2);
-//    glBindTexture(GL_TEXTURE_2D, _bwTexture);
-//    glUniform1i(_textureTopUniform, 2);
-    
-    _texCoordSlot = glGetAttribLocation(programHandle, "TexCoordIn");
-    _positionSlot = glGetAttribLocation(programHandle, "Position");
-    _colorSlot = glGetAttribLocation(programHandle, "SourceColor");
+    _texCoordSlot = glGetAttribLocation(programHandle, "a_TextureCoordinate");
+    _positionSlot = glGetAttribLocation(programHandle, "a_TexturePosition");
     glEnableVertexAttribArray(_texCoordSlot);
     glEnableVertexAttribArray(_positionSlot);
     glEnableVertexAttribArray(_colorSlot);

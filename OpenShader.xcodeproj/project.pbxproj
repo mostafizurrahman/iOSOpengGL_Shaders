@@ -42,7 +42,7 @@
 		EB3094581FE065F10011B937 /* QuadVProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB3094541FE065F10011B937 /* QuadVProgram.glsl */; };
 		EB3094611FE067E10011B937 /* BlurShaderProgram.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB3094601FE067E10011B937 /* BlurShaderProgram.mm */; };
 		EB5ED4E31FD9C04C0044CC42 /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E21FD9C04B0044CC42 /* image1.jpg */; };
-		EB5ED4E51FD9C9220044CC42 /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* img.png */; };
+		EB5ED4E51FD9C9220044CC42 /* image.png in Resources */ = {isa = PBXBuildFile; fileRef = EB5ED4E41FD9C9220044CC42 /* image.png */; };
 		EB74578F1FE077F100E19511 /* YUVQuadFProgram.glsl in Resources */ = {isa = PBXBuildFile; fileRef = EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */; };
 		EB754DE51FE3A5D300951581 /* TCCameraSession.m in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE41FE3A5D200951581 /* TCCameraSession.m */; };
 		EB754DEB1FE3A5E500951581 /* GLKDetectionView.mm in Sources */ = {isa = PBXBuildFile; fileRef = EB754DE91FE3A5E400951581 /* GLKDetectionView.mm */; };
@@ -128,7 +128,7 @@
 		EB30945F1FE067E10011B937 /* BlurShaderProgram.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlurShaderProgram.h; path = OpengGL/BlurShaderProgram.h; sourceTree = "<group>"; };
 		EB3094601FE067E10011B937 /* BlurShaderProgram.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = BlurShaderProgram.mm; path = OpengGL/BlurShaderProgram.mm; sourceTree = "<group>"; };
 		EB5ED4E21FD9C04B0044CC42 /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
-		EB5ED4E41FD9C9220044CC42 /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
+		EB5ED4E41FD9C9220044CC42 /* image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image.png; sourceTree = "<group>"; };
 		EB74578E1FE077F100E19511 /* YUVQuadFProgram.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = YUVQuadFProgram.glsl; path = OpengGL/YUVQuadFProgram.glsl; sourceTree = "<group>"; };
 		EB754DE31FE3A5D200951581 /* TCCameraSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TCCameraSession.h; sourceTree = "<group>"; };
 		EB754DE41FE3A5D200951581 /* TCCameraSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TCCameraSession.m; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 				BE3BB9601FA09E87003E63C7 /* Particle.png */,
 				BE12AF911F9EF52000FB2186 /* AppDelegate.h */,
 				BE12AF921F9EF52000FB2186 /* AppDelegate.m */,
-				EB5ED4E41FD9C9220044CC42 /* img.png */,
+				EB5ED4E41FD9C9220044CC42 /* image.png */,
 				BE12AFC41F9EFB1400FB2186 /* image.jpg */,
 				EB0F84F61FBB9C2600B8DCC7 /* image.jpeg */,
 				EB0F84F81FBBA10800B8DCC7 /* spot.jpg */,
@@ -520,7 +520,7 @@
 				EB0F84F71FBB9C2600B8DCC7 /* image.jpeg in Resources */,
 				BE3BB9611FA09E87003E63C7 /* Particle.png in Resources */,
 				EB03C64F1FE4016F00BD7E40 /* FaceMaskFShader.glsl in Resources */,
-				EB5ED4E51FD9C9220044CC42 /* img.png in Resources */,
+				EB5ED4E51FD9C9220044CC42 /* image.png in Resources */,
 				BE12AF991F9EF52000FB2186 /* Main.storyboard in Resources */,
 				BE12AFC51F9EFB1400FB2186 /* image.jpg in Resources */,
 			);
